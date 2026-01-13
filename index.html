@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miracle Ugokwe - Full-Stack Blockchain Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 15s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .project-tag {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        smooth-scroll {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0">
+                    <h1 class="text-2xl font-bold gradient-text">Miracle Ugokwe</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="#about" class="nav-link text-gray-700 hover:text-purple-600 font-medium">About</a>
+                        <a href="#projects" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Projects</a>
+                        <a href="#skills" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Skills</a>
+                        <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Contact</a>
+                        <a href="public/Miracles_Updated_Cv.pdf" download class="gradient-bg text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition">
+                            <i class="fas fa-download mr-2"></i>Resume
+                        </a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-purple-600">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 pt-4 pb-6 space-y-3">
+                <a href="#about" class="block text-gray-700 hover:text-purple-600 font-medium py-2">About</a>
+                <a href="#projects" class="block text-gray-700 hover:text-purple-600 font-medium py-2">Projects</a>
+                <a href="#skills" class="block text-gray-700 hover:text-purple-600 font-medium py-2">Skills</a>
+                <a href="#contact" class="block text-gray-700 hover:text-purple-600 font-medium py-2">Contact</a>
+                <a href="public/Miracles_Updated_Cv.pdf" download class="block gradient-bg text-white px-6 py-3 rounded-full font-semibold text-center">
+                    <i class="fas fa-download mr-2"></i>Resume
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative z-10">
+                    <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                        Hi! Welcome to<br>My Portfolio
+                    </h2>
+                    <p class="text-xl mb-4 text-gray-100">
+                        Full-stack developer specializing in blockchain technology, Web3 applications, and decentralized systems, with project management and procurement expertise.
+                    </p>
+                    <p class="text-lg mb-8 text-gray-200">
+                        Let's build the future of decentralized technology together.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#projects" class="bg-white text-purple-600 px-8 py-4 rounded-full font-bold hover:shadow-2xl transition transform hover:scale-105">
+                            View My Work
+                        </a>
+                        <a href="#contact" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-purple-600 transition">
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+                <div class="relative z-10 flex justify-center">
+                    <div class="relative">
+                        <img src="public/images/my_picture.jpeg" alt="Miracle Ugokwe" class="rounded-full w-80 h-80 object-cover border-8 border-white shadow-2xl">
+                        <div class="absolute -bottom-4 -right-4 bg-white text-purple-600 rounded-full p-6 shadow-xl">
+                            <i class="fas fa-code text-4xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="public/images/sir_mimisco.png" alt="Miracle Ugokwe Portrait" class="rounded-3xl shadow-2xl">
+                </div>
+                <div>
+                    <h2 class="text-4xl font-bold mb-4 section-title">Miracle C. Ugokwe</h2>
+                    <h3 class="text-xl text-purple-600 font-semibold mb-6">Know more About me</h3>
+                    
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        Full-stack developer, blockchain specialist, and project management professional with a unique blend of technical and procurement expertise. With a background in Quantity Surveying Technology and pursuing an MSc in Procurement Management, I bring a strategic approach to building Web3 applications including dApps, token faucets, blockchain trackers, wallet dashboards, and autonomous trading systems using Solidity, JavaScript, React, Node.js, Python, and HTML5/CSS3.
+                    </p>
+                    
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        As a dedicated Linux user (daily driver), I have deep expertise in Linux system administration, command-line operations, and open-source development workflows. My expertise spans full-stack development, construction project management, and security-conscious coding practices. With growing knowledge in cybersecurity fundamentals, network security, and risk analysis, I continuously expand my technical skillset while applying security principles to all development work.
+                    </p>
+                    
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Passionate about bridging blockchain technology with traditional project management methodologies, I leverage my dual expertise to ensure timely, cost-effective delivery of technical solutions. My technical toolkit includes Web3.js, Ethers.js, Hardhat, Shell scripting, Python for data analysis and automation, and comprehensive knowledge of Linux environments and construction industry procurement processes.
+                    </p>
+
+                    <div class="flex gap-4 mt-8">
+                        <a href="/cdn-cgi/l/email-protection#3f4c564d525652564c5c507f465e575050115c5052" class="social-link hover:text-purple-600">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                        <a href="https://wa.me/2348068808654" target="_blank" class="social-link hover:text-green-600">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="https://x.com/Sir_Mimisco" target="_blank" class="social-link hover:text-blue-400">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="https://github.com/mimisco-git" target="_blank" class="social-link hover:text-gray-800">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="https://github.com/Alukadex" target="_blank" class="social-link hover:text-gray-800">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/miracle-ugokwe-641773a6/" target="_blank" class="social-link hover:text-blue-700">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 section-title inline-block">Featured Projects</h2>
+                <p class="text-gray-600 text-lg mt-8">A collection of my recent work and experiments</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1: IOPN Hub -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg card-hover">
+                    <img src="public/images/iopn-hub.png" alt="IOPN Hub" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">Web3</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">IOPN Hub Progress Tracker</h3>
+                        <p class="text-gray-600 mb-4">
+                            Web3 dashboard with reputation system, social connections tracking, achievement gamification, and activity heatmap visualization for blockchain networks.
+                        </p>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-purple-600 hover:text-purple-800 font-semibold">
+                                Live Demo <i class="fas fa-external-link-alt ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Arc Testnet Tracker -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg card-hover">
+                    <img src="public/images/arc-hub.png" alt="Arc Testnet Tracker" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">BlockScout API</span>
+                            <span class="project-tag">DeFi</span>
+                            <span class="project-tag">Analytics</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Arc Testnet Progress Tracker</h3>
+                        <p class="text-gray-600 mb-4">
+                            Real-time blockchain analytics platform fetching transaction data via BlockScout API with DeFi activity categorization and wallet level gamification.
+                        </p>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-purple-600 hover:text-purple-800 font-semibold">
+                                Live Demo <i class="fas fa-external-link-alt ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Alukadex Trading Bot -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg card-hover">
+                    <div class="w-full h-56 gradient-bg flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">Trading</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Alukadex Trading Bot</h3>
+                        <p class="text-gray-600 mb-4">
+                            Autonomous multi-chain trading agent with real-time market analysis, volatility adaptation, and automated execution via Recall Trading API.
+                        </p>
+                        <div class="flex gap-3">
+                            <a href="https://github.com/Alukadex/Alukadex-Bot" target="_blank" class="text-purple-600 hover:text-purple-800 font-semibold">
+                                GitHub <i class="fab fa-github ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: SpecFetch -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg card-hover">
+                    <img src="public/images/vscode.png" alt="SpecFetch" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="project-tag">Shell Script</span>
+                            <span class="project-tag">Bash</span>
+                            <span class="project-tag">Linux</span>
+                            <span class="project-tag">CLI</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">SpecFetch</h3>
+                        <p class="text-gray-600 mb-4">
+                            Custom Linux system information fetcher with detailed hardware specs, lightweight bash implementation, and automated installation for diagnostics.
+                        </p>
+                        <div class="flex gap-3">
+                            <a href="https://github.com/Alukadex/specfetch" target="_blank" class="text-purple-600 hover:text-purple-800 font-semibold">
+                                GitHub <i class="fab fa-github ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Mimi.AI Chatbot -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg card-hover">
+                    <div class="w-full h-56 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
+                        <i class="fas fa-comments text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">AI</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Mimi.AI Chatbot</h3>
+                        <p class="text-gray-600 mb-4">
+                            Interactive AI-powered chat interface with conversational AI implementation, clean responsive design, and real-time functionality.
+                        </p>
+                        <div class="flex gap-3">
+                            <a href="https://github.com/Alukadex/mimi.ai" target="_blank" class="text-purple-600 hover:text-purple-800 font-semibold">
+                                GitHub <i class="fab fa-github ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 section-title inline-block">Key Expertise</h2>
+                <p class="text-gray-600 text-lg mt-8">Quality in every detail</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+                
+                <!-- Skill 1 -->
+                <div class="skill-card text-center">
+                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-cubes text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Web3 & Blockchain Development</h3>
+                    <p class="text-gray-600">
+                        Building decentralized applications, smart contracts, and Web3 interfaces with Solidity, Web3.js, and Ethers.js.
+                    </p>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="skill-card text-center">
+                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fab fa-linux text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Linux System Administration</h3>
+                    <p class="text-gray-600">
+                        Daily Linux user with expertise in system administration, command-line operations, and open-source workflows.
+                    </p>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="skill-card text-center">
+                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Risk Analysis & Security</h3>
+                    <p class="text-gray-600">
+                        Security-conscious development with growing expertise in cybersecurity, network security, and risk analysis.
+                    </p>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="skill-card text-center">
+                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-tasks text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Project Management & Procurement</h3>
+                    <p class="text-gray-600">
+                        Strategic project delivery with expertise in procurement management, resource allocation, and construction projects.
+                    </p>
+                </div>
+
+                <!-- Skill 5 -->
+                <div class="skill-card text-center">
+                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-headset text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">IT Support & Infrastructure</h3>
+                    <p class="text-gray-600">
+                        Comprehensive IT support services including system troubleshooting, hardware/software installations, network management, and remote technical support.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 hero-bg text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-6">Let's Build Something Amazing</h2>
+            <p class="text-xl mb-12 text-gray-100">
+                Ready to collaborate on your next blockchain or Web3 project? Get in touch!
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-6">
+                    <i class="fas fa-envelope text-4xl mb-4"></i>
+                    <h3 class="font-bold mb-2">Email</h3>
+                    <a href="/cdn-cgi/l/email-protection#cebda7bca3a7a3a7bdada18eb7afa6a1a1e0ada1a3" class="text-gray-200 hover:text-white"><span class="__cf_email__" data-cfemail="d7a4bea5babebabea4b4b897aeb6bfb8b8f9b4b8ba">[email&#160;protected]</span></a>
+                </div>
+                <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-6">
+                    <i class="fab fa-whatsapp text-4xl mb-4"></i>
+                    <h3 class="font-bold mb-2">WhatsApp</h3>
+                    <a href="https://wa.me/2348068808654" target="_blank" class="text-gray-200 hover:text-white">+234 806 880 8654</a>
+                </div>
+                <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-6">
+                    <i class="fas fa-map-marker-alt text-4xl mb-4"></i>
+                    <h3 class="font-bold mb-2">Location</h3>
+                    <p class="text-gray-200">Lagos, Nigeria</p>
+                </div>
+            </div>
+
+            <div class="flex justify-center gap-4">
+                <a href="https://x.com/Sir_Mimisco" target="_blank" class="social-link bg-white bg-opacity-10 hover:bg-opacity-20 text-white border-2 border-white">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a href="https://github.com/mimisco-git" target="_blank" class="social-link bg-white bg-opacity-10 hover:bg-opacity-20 text-white border-2 border-white">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="https://github.com/Alukadex" target="_blank" class="social-link bg-white bg-opacity-10 hover:bg-opacity-20 text-white border-2 border-white">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/miracle-ugokwe-641773a6/" target="_blank" class="social-link bg-white bg-opacity-10 hover:bg-opacity-20 text-white border-2 border-white">
+                    <i class="fab fa-linkedin text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">
+                © 2025 Miracle C. Ugokwe | Full-Stack Blockchain Developer
+            </p>
+            <p class="text-gray-500 text-sm mt-2">
+                Built with passion for decentralized technology
+            </p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.que

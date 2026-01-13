@@ -1,0 +1,19 @@
+{
+  "name": "miracle-ugokwe-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website for Miracle C. Ugokwe - Full-Stack Blockchain Developer",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 3000",
+    "start": "python3 -m http.server 8080"
+  },
+  "keywords": [
+    "portfolio",
+    "blockchain",
+    "web3",
+    "developer",
+    "fullstack"
+  ],
+  "author": "Miracle C. Ugokwe",
+  "license": "MIT"
+}
