@@ -1,555 +1,1185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miracle Ugokwe - Full-Stack Blockchain Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        
-        * {
-            font-family: 'Inter', sans-serif;
-        }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Miracle C. Ugokwe — Agentic AI & Web3 Engineer, Data Analyst, IT Support Specialist. CEO of Mimisco Technologies. Open to global remote roles."/>
+<title>MIRACLE C. UGOKWE // PORTFOLIO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+/* ── RESET & ROOT ── */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:86px;}
+:root{
+  --black:#080808;
+  --black2:#0f0f0f;
+  --black3:#151515;
+  --black4:#1c1c1c;
+  --white:#f0ede8;
+  --white2:#c8c4bc;
+  --white3:#888480;
+  --green:#00ff41;
+  --green2:#00cc33;
+  --yellow:#f5e642;
+  --red:#ff3333;
+  --border:#2a2a2a;
+  --border2:#3d3d3d;
+  --mono:'JetBrains Mono',monospace;
+  --sans:'Space Grotesk',sans-serif;
+}
+body{background:var(--black);color:var(--white);font-family:var(--mono);overflow-x:hidden;}
+a,button,.filter-btn{cursor:pointer !important;}
+a{text-decoration:none;color:inherit;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--black);}
+::-webkit-scrollbar-thumb{background:var(--green);}
+::selection{background:var(--green);color:var(--black);}
 
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+/* ── SCANLINES overlay ── */
+body::after{
+  content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.08) 2px,rgba(0,0,0,0.08) 4px);
+}
 
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
+/* ── NAV ── */
+nav{
+  position:fixed;top:30px;width:100%;z-index:100;
+  background:var(--black);
+  border-bottom:2px solid var(--green);
+  padding:0 2rem;
+}
+.nav-inner{
+  max-width:1400px;margin:0 auto;height:56px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{
+  font-family:var(--mono);font-size:0.9rem;font-weight:800;
+  color:var(--green);letter-spacing:2px;text-transform:uppercase;
+  display:flex;align-items:center;gap:0.5rem;
+}
+.logo-bracket{color:var(--white3);}
+.nav-links{display:flex;align-items:center;gap:0;border-left:1px solid var(--border2);}
+.nav-links a{
+  color:var(--white3);font-size:0.7rem;font-weight:500;
+  text-transform:uppercase;letter-spacing:2px;padding:0 1.1rem;
+  height:56px;display:flex;align-items:center;
+  border-right:1px solid var(--border2);
+  transition:all 0.15s;
+}
+.nav-links a:hover{color:var(--green);background:rgba(0,255,65,0.05);}
+.nav-cta{
+  background:var(--green) !important;color:var(--black) !important;
+  font-weight:700 !important;
+}
+.nav-cta:hover{background:var(--green2) !important;color:var(--black) !important;}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{width:22px;height:2px;background:var(--green);display:block;}
+.mobile-menu{
+  display:none;position:fixed;top:86px;left:0;width:100%;
+  background:var(--black);border-bottom:2px solid var(--green);
+  z-index:99;flex-direction:column;
+}
+.mobile-menu a{color:var(--white2);font-size:0.8rem;text-transform:uppercase;letter-spacing:2px;padding:1rem 2rem;border-bottom:1px solid var(--border);}
+.mobile-menu.open{display:flex;}
 
-        .card-hover {
-            transition: all 0.3s ease;
-        }
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 2rem 0;padding-top:86px;position:relative;overflow:hidden;
+}
+.hero-grid-bg{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--border) 1px,transparent 1px),
+    linear-gradient(90deg,var(--border) 1px,transparent 1px);
+  background-size:60px 60px;
+  opacity:0.4;
+}
+.hero-inner{
+  max-width:1400px;margin:0 auto;width:100%;
+  padding:4rem 0 0;
+  border-left:2px solid var(--green);
+  padding-left:2rem;
+  position:relative;z-index:1;
+}
+.hero-sys{font-size:0.7rem;color:var(--green);letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem;}
+.hero-sys span{color:var(--white3);}
+.hero h1{
+  font-size:clamp(3.5rem,9vw,8rem);font-weight:800;line-height:0.92;
+  letter-spacing:-3px;text-transform:uppercase;
+  color:var(--white);margin-bottom:0.25rem;
+}
+.hero h1 .hi{color:var(--green);}
+.hero-sub{
+  font-size:clamp(1rem,2vw,1.5rem);font-weight:300;
+  color:var(--white3);letter-spacing:1px;margin-bottom:2.5rem;
+  border-left:3px solid var(--yellow);padding-left:1rem;
+  display:inline-block;
+}
+.hero-meta-bar{
+  display:flex;align-items:stretch;
+  border-top:2px solid var(--border2);border-bottom:2px solid var(--border2);
+  margin-bottom:0;
+}
+.hero-meta-cell{
+  padding:1rem 1.5rem;border-right:1px solid var(--border2);
+  font-size:0.7rem;text-transform:uppercase;letter-spacing:2px;
+}
+.hero-meta-cell:last-child{border-right:none;}
+.hero-meta-cell .val{font-size:1.2rem;font-weight:700;color:var(--green);display:block;font-family:var(--mono);}
+.hero-meta-cell .lbl{color:var(--white3);font-size:0.65rem;}
+.hero-btns-bar{
+  display:flex;
+  border-bottom:2px solid var(--green);
+}
+.hero-btn{
+  padding:1.1rem 2rem;font-size:0.78rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:3px;
+  border-right:2px solid var(--green);cursor:pointer;
+  transition:all 0.15s;display:flex;align-items:center;gap:0.6rem;
+}
+.hero-btn-primary{background:var(--green);color:var(--black);}
+.hero-btn-primary:hover{background:var(--black);color:var(--green);}
+.hero-btn-secondary{background:var(--black);color:var(--white2);}
+.hero-btn-secondary:hover{background:var(--black3);color:var(--white);}
+.hero-status{
+  margin-left:auto;padding:1.1rem 1.5rem;
+  font-size:0.65rem;color:var(--white3);text-transform:uppercase;letter-spacing:2px;
+  display:flex;align-items:center;gap:0.6rem;
+}
+.status-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:blink 1.8s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.2;}}
 
-        .card-hover:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
+/* ── SECTION SYSTEM ── */
+section{position:relative;}
+.section-pad{padding:5rem 2rem;}
+.container{max-width:1400px;margin:0 auto;}
+.section-header{
+  display:flex;align-items:flex-start;gap:2rem;
+  border-bottom:2px solid var(--border2);
+  padding-bottom:1.5rem;margin-bottom:3rem;
+}
+.section-num{
+  font-size:4rem;font-weight:800;color:var(--border2);
+  font-family:var(--mono);line-height:1;flex-shrink:0;
+}
+.section-header-text{}
+.section-label{
+  font-size:0.65rem;color:var(--green);text-transform:uppercase;
+  letter-spacing:4px;display:block;margin-bottom:0.5rem;
+}
+.section-title{
+  font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;
+  text-transform:uppercase;letter-spacing:-1px;line-height:1;
+}
+.section-sub{font-size:0.82rem;color:var(--white3);margin-top:0.5rem;line-height:1.6;}
 
-        .nav-link {
-            position: relative;
-            transition: color 0.3s;
-        }
+/* ── TICKER TAPE ── */
+.ticker{
+  background:var(--green);color:var(--black);
+  font-size:0.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  padding:0.5rem 0;overflow:hidden;white-space:nowrap;
+  border-top:1px solid var(--black);border-bottom:1px solid var(--black);
+}
+.ticker-inner{display:inline-block;animation:ticker 30s linear infinite;}
+@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: width 0.3s;
-        }
+/* ── ABOUT ── */
+.about-layout{display:grid;grid-template-columns:380px 1fr;gap:0;border:2px solid var(--border2);}
+.about-img-col{border-right:2px solid var(--border2);position:relative;overflow:hidden;}
+.about-img-col img{width:100%;display:block;filter:contrast(1.1) grayscale(0.1);}
+.about-img-overlay{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent,var(--black));
+  padding:1.5rem;
+}
+.about-img-tag{
+  display:inline-block;background:var(--green);color:var(--black);
+  font-size:0.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  padding:0.3rem 0.7rem;margin-bottom:0.3rem;display:block;
+}
+.about-content{padding:2.5rem;}
+.about-content p{font-size:0.82rem;color:var(--white2);line-height:1.9;margin-bottom:1rem;font-family:var(--sans);}
+.about-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin:1.5rem 0;}
+.tag-pill{
+  border:1px solid var(--border2);color:var(--white3);
+  padding:0.25rem 0.65rem;font-size:0.7rem;font-weight:500;
+  text-transform:uppercase;letter-spacing:1px;
+  transition:all 0.15s;
+}
+.tag-pill:hover{border-color:var(--green);color:var(--green);}
+.edu-row{
+  display:flex;align-items:center;gap:0.75rem;
+  border-top:1px solid var(--border);padding:0.9rem 0;
+  font-size:0.78rem;
+}
+.edu-row:last-child{border-bottom:1px solid var(--border);}
+.edu-row i{color:var(--green);width:16px;flex-shrink:0;}
+.edu-row strong{color:var(--white);font-weight:600;}
+.edu-row span{color:var(--white3);font-size:0.7rem;margin-left:auto;white-space:nowrap;}
 
-        .nav-link:hover::after {
-            width: 100%;
-        }
+/* ── SKILLS ── */
+.skills-section{background:var(--black2);}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--border2);}
+.skill-group{
+  padding:1.75rem;border-right:1px solid var(--border2);
+  border-bottom:1px solid var(--border2);
+}
+.skill-group:nth-child(3n){border-right:none;}
+.skill-group:nth-last-child(-n+3){border-bottom:none;}
+.sg-head{
+  display:flex;align-items:center;gap:0.75rem;
+  margin-bottom:1.25rem;padding-bottom:1rem;
+  border-bottom:1px solid var(--border);
+}
+.sg-icon{
+  width:36px;height:36px;border:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.9rem;flex-shrink:0;
+  background:var(--black3);
+}
+.sg-green .sg-icon{border-color:var(--green);color:var(--green);}
+.sg-yellow .sg-icon{border-color:var(--yellow);color:var(--yellow);}
+.sg-red .sg-icon{border-color:var(--red);color:var(--red);}
+.sg-white .sg-icon{border-color:var(--white3);color:var(--white2);}
+.sg-title{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--white2);}
+.sg-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
+.sg-tag{
+  font-size:0.68rem;color:var(--white3);
+  background:var(--black3);border:1px solid var(--border);
+  padding:0.2rem 0.55rem;
+  transition:all 0.15s;cursor:default;
+}
+.sg-tag:hover{border-color:var(--green);color:var(--green);}
 
-        .hero-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-            overflow: hidden;
-        }
+/* ── PROJECTS ── */
+.projects-filter{
+  display:flex;border:2px solid var(--border2);margin-bottom:2.5rem;
+  overflow-x:auto;
+}
+.filter-btn{
+  flex-shrink:0;padding:0.6rem 1.25rem;font-size:0.68rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:2px;cursor:pointer;
+  background:none;border:none;color:var(--white3);font-family:var(--mono);
+  border-right:1px solid var(--border2);transition:all 0.15s;
+}
+.filter-btn:last-child{border-right:none;}
+.filter-btn.active,.filter-btn:hover{background:var(--green);color:var(--black);}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--border2);}
+.project-card{
+  border-right:1px solid var(--border2);border-bottom:1px solid var(--border2);
+  display:flex;flex-direction:column;transition:background 0.15s;
+  position:relative;overflow:hidden;
+}
+.project-card:nth-child(3n){border-right:none;}
+.project-card:hover{background:var(--black2);}
+.project-thumb{
+  height:200px;overflow:hidden;position:relative;
+  background:var(--black3);border-bottom:1px solid var(--border2);
+}
+.project-thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.05);}
+.project-thumb img:hover{filter:contrast(1.1) brightness(1.05);}
+.project-thumb-svg{width:100%;height:100%;display:block;}
+.project-num{
+  position:absolute;top:0;left:0;
+  background:var(--green);color:var(--black);
+  font-size:0.65rem;font-weight:800;letter-spacing:2px;
+  padding:0.25rem 0.6rem;
+}
+.project-body{padding:1.25rem;flex:1;display:flex;flex-direction:column;}
+.project-cats{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:0.75rem;}
+.project-cat{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--green);border:1px solid var(--green);padding:0.15rem 0.5rem;}
+.project-title{font-size:0.95rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.5rem;}
+.project-desc{font-size:0.76rem;color:var(--white3);line-height:1.75;flex:1;font-family:var(--sans);}
+.project-links{
+  display:flex;gap:0;margin-top:1.25rem;
+  border-top:1px solid var(--border2);
+}
+.project-link{
+  font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;
+  color:var(--white3);padding:0.6rem 0.9rem;
+  border-right:1px solid var(--border2);
+  display:inline-flex;align-items:center;gap:0.4rem;
+  transition:all 0.15s;
+}
+.project-link:hover{color:var(--green);background:rgba(0,255,65,0.05);}
+.project-link:last-child{border-right:none;}
 
-        .hero-bg::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: pulse 15s infinite;
-        }
+/* ── EXPERIENCE ── */
+.exp-section{background:var(--black);}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--border2);}
+.exp-col{padding:2rem;border-right:1px solid var(--border2);}
+.exp-col:last-child{border-right:none;}
+.exp-col-head{
+  font-size:0.65rem;color:var(--green);text-transform:uppercase;
+  letter-spacing:4px;margin-bottom:1.75rem;padding-bottom:0.75rem;
+  border-bottom:1px solid var(--border2);
+}
+.timeline-item{
+  display:flex;gap:1rem;margin-bottom:1.75rem;
+  padding-bottom:1.75rem;border-bottom:1px solid var(--border);
+}
+.timeline-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.tl-left{display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:24px;}
+.tl-dot{width:10px;height:10px;border:2px solid var(--green);background:var(--green);flex-shrink:0;}
+.tl-line{flex:1;width:1px;background:var(--border2);margin-top:4px;}
+.tl-dot-purple{border-color:var(--yellow);background:var(--yellow);}
+.tl-dot-gray{border-color:var(--white3);background:var(--white3);}
+.tl-right{}
+.tl-title{font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.2rem;}
+.tl-org{font-size:0.72rem;color:var(--green);font-weight:500;margin-bottom:0.15rem;}
+.tl-org-y{color:var(--yellow);}
+.tl-org-g{color:var(--white3);}
+.tl-period{font-size:0.65rem;color:var(--white3);margin-bottom:0.6rem;letter-spacing:1px;}
+.tl-desc{font-size:0.76rem;color:var(--white3);line-height:1.75;font-family:var(--sans);}
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
+/* ── SERVICES ── */
+.services-section{background:var(--black2);}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--border2);}
+.service-item{
+  padding:2rem 1.75rem;border-right:1px solid var(--border2);
+  border-bottom:1px solid var(--border2);transition:background 0.15s;
+}
+.service-item:nth-child(3n){border-right:none;}
+.service-item:nth-last-child(-n+3){border-bottom:none;}
+.service-item:hover{background:var(--black3);}
+.service-num{font-size:0.65rem;color:var(--green);letter-spacing:3px;margin-bottom:0.75rem;display:block;}
+.service-title{font-size:0.95rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.5rem;}
+.service-desc{font-size:0.78rem;color:var(--white3);line-height:1.75;font-family:var(--sans);}
+.service-tags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:1rem;}
+.service-tag{font-size:0.62rem;color:var(--white3);border:1px solid var(--border2);padding:0.15rem 0.45rem;}
 
-        .project-tag {
-            background: rgba(102, 126, 234, 0.1);
-            color: #667eea;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
+/* ── CONTACT ── */
+.contact-section{background:var(--black);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--border2);}
+.contact-info{border-right:2px solid var(--border2);padding:2.5rem;}
+.contact-info h3{font-size:1.2rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;margin-bottom:0.5rem;}
+.contact-info p{font-size:0.8rem;color:var(--white3);line-height:1.8;margin-bottom:1.75rem;font-family:var(--sans);}
+.contact-card{
+  display:flex;align-items:center;gap:0.9rem;
+  padding:0.9rem 0;border-bottom:1px solid var(--border);
+  font-size:0.78rem;transition:all 0.15s;
+}
+.contact-card:hover{color:var(--green);}
+.contact-card:last-child{border-bottom:none;}
+.cc-icon{width:32px;height:32px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:0.85rem;flex-shrink:0;color:var(--green);}
+.cc-label{font-size:0.62rem;color:var(--white3);display:block;text-transform:uppercase;letter-spacing:2px;}
+.cc-val{font-size:0.8rem;font-weight:600;}
+.social-row{display:flex;gap:0;margin-top:2rem;border:1px solid var(--border2);}
+.social-btn{
+  flex:1;height:44px;display:flex;align-items:center;justify-content:center;
+  font-size:0.85rem;color:var(--white3);border-right:1px solid var(--border2);
+  transition:all 0.15s;
+}
+.social-btn:last-child{border-right:none;}
+.social-btn:hover{background:var(--green);color:var(--black);}
+.contact-form{padding:2.5rem;}
+.form-group{margin-bottom:1.1rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.form-group label{
+  display:block;font-size:0.62rem;font-weight:700;
+  color:var(--white3);text-transform:uppercase;letter-spacing:2px;margin-bottom:0.4rem;
+}
+.form-group input,.form-group textarea,.form-group select{
+  width:100%;background:var(--black3);border:1px solid var(--border2);
+  color:var(--white);font-family:var(--mono);font-size:0.8rem;
+  padding:0.7rem 0.9rem;outline:none;transition:border-color 0.15s;
+  -webkit-appearance:none;appearance:none;
+}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--green);}
+.form-group select option{background:var(--black3);}
+.form-group textarea{height:110px;resize:vertical;}
+.form-submit{
+  width:100%;background:var(--green);color:var(--black);border:none;
+  padding:0.85rem;font-size:0.78rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:3px;cursor:pointer;
+  font-family:var(--mono);transition:all 0.15s;
+}
+.form-submit:hover{background:var(--black);color:var(--green);border:1px solid var(--green);}
 
-        .section-title {
-            position: relative;
-            display: inline-block;
-        }
+/* ── FOOTER ── */
+footer{
+  background:var(--black);border-top:2px solid var(--green);
+  padding:1.25rem 2rem;
+}
+.footer-inner{
+  max-width:1400px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+}
+.footer-brand{font-size:0.75rem;font-weight:800;color:var(--green);letter-spacing:3px;text-transform:uppercase;}
+.footer-text{font-size:0.65rem;color:var(--white3);text-align:center;}
+.footer-links{display:flex;gap:0;}
+.footer-links a{
+  font-size:0.65rem;color:var(--white3);text-transform:uppercase;
+  letter-spacing:1.5px;padding:0 0.85rem;border-right:1px solid var(--border2);
+  transition:color 0.15s;
+}
+.footer-links a:last-child{border-right:none;padding-right:0;}
+.footer-links a:hover{color:var(--green);}
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 50%;
-            height: 4px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 2px;
-        }
+/* ── FADE-UP ── */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.6s,transform 0.6s;}
+.fade-up.visible{opacity:1;transform:none;}
 
-        .skill-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            transition: all 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: all 0.3s;
-            background: white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .social-link:hover {
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
-        }
-
-        smooth-scroll {
-            scroll-behavior: smooth;
-        }
-    </style>
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .projects-grid{grid-template-columns:repeat(2,1fr);}
+  .project-card:nth-child(3n){border-right:1px solid var(--border2);}
+  .project-card:nth-child(2n){border-right:none;}
+  .skills-grid{grid-template-columns:repeat(2,1fr);}
+  .skill-group:nth-child(3n){border-right:1px solid var(--border2);}
+  .skill-group:nth-child(2n){border-right:none;}
+  .services-grid{grid-template-columns:repeat(2,1fr);}
+  .service-item:nth-child(3n){border-right:1px solid var(--border2);}
+  .service-item:nth-child(2n){border-right:none;}
+}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .hero h1{font-size:3rem;letter-spacing:-1px;}
+  .about-layout{grid-template-columns:1fr;}
+  .about-img-col{border-right:none;border-bottom:2px solid var(--border2);}
+  .about-img-col img{max-height:340px;object-fit:cover;width:100%;}
+  .projects-grid{grid-template-columns:1fr;}
+  .project-card:nth-child(n){border-right:none;}
+  .skills-grid{grid-template-columns:1fr;}
+  .skill-group:nth-child(n){border-right:none;}
+  .services-grid{grid-template-columns:1fr;}
+  .service-item:nth-child(n){border-right:none;}
+  .exp-grid{grid-template-columns:1fr;}
+  .exp-col{border-right:none;border-bottom:1px solid var(--border2);}
+  .contact-grid{grid-template-columns:1fr;}
+  .contact-info{border-right:none;border-bottom:2px solid var(--border2);}
+  .form-row{grid-template-columns:1fr;}
+  .footer-inner{flex-direction:column;text-align:center;}
+  .hero-meta-bar{flex-wrap:wrap;}
+  .hero-btns-bar{flex-wrap:wrap;}
+  .hero-status{margin-left:0;}
+  .section-pad{padding:3.5rem 1.25rem;}
+}
+</style>
 </head>
-<body class="bg-gray-50">
-    
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0">
-                    <h1 class="text-2xl font-bold gradient-text">Miracle Ugokwe</h1>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-center space-x-8">
-                        <a href="#about" class="nav-link text-gray-700 hover:text-purple-600 font-medium">About</a>
-                        <a href="#projects" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Projects</a>
-                        <a href="#skills" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Skills</a>
-                        <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Contact</a>
-                        <a href="public/Miracles_Updated_Cv.pdf" download class="gradient-bg text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition">
-                            <i class="fas fa-download mr-2"></i>Resume
-                        </a>
-                    </div>
-                </div>
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-700 hover:text-purple-600">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
+<body>
+
+<!-- WHATSAPP TOP BAR -->
+<div style="background:#00ff41;color:#000;text-align:center;padding:0.4rem 1rem;font-size:0.7rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;position:fixed;top:0;width:100%;z-index:200;display:flex;align-items:center;justify-content:center;gap:1rem;">
+  <i class="fab fa-whatsapp" style="font-size:1rem;"></i>
+  AVAILABLE NOW — WHATSAPP: <a href="https://wa.me/2348068808654" target="_blank" style="color:#000;text-decoration:underline;font-weight:900;">+234 806 880 8654</a>
+  &nbsp;|&nbsp; EMAIL: <a href="mailto:sirmimisco@yahoo.com" style="color:#000;text-decoration:underline;font-weight:900;">sirmimisco@yahoo.com</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
+      <span class="logo-bracket">[</span>MCU<span class="logo-bracket">]</span>&nbsp;MIRACLE.DEV
+    </div>
+    <div class="nav-links">
+      <a href="#about">_ABOUT</a>
+      <a href="#skills">_STACK</a>
+      <a href="#projects">_PROJECTS</a>
+      <a href="#experience">_XP</a>
+      <a href="#services">_SERVICES</a>
+      <a href="#contact">_CONTACT</a>
+      <a href="public/Miracles_Updated_Cv.pdf" download class="nav-cta"><i class="fas fa-download"></i>&nbsp;CV.PDF</a>
+    </div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about">_ABOUT</a><a href="#skills">_STACK</a>
+  <a href="#projects">_PROJECTS</a><a href="#experience">_XP</a>
+  <a href="#services">_SERVICES</a><a href="#contact">_CONTACT</a>
+  <a href="public/Miracles_Updated_Cv.pdf" download style="color:var(--green);font-weight:700;">&#8659; DOWNLOAD CV</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-sys">SYS://PORTFOLIO_v2.0 &nbsp;<span>// INITIALIZED &nbsp;// NODE: NG-PHC-01</span></div>
+    <h1><span class="hi">_</span>MIRACLE<br>UGOKWE</h1>
+    <div class="hero-sub" id="typewriter">AGENTIC AI &amp; WEB3 ENGINEER</div>
+    <div class="hero-meta-bar">
+      <div class="hero-meta-cell"><span class="val">9+</span><span class="lbl">Projects Shipped</span></div>
+      <div class="hero-meta-cell"><span class="val">20+</span><span class="lbl">EVM Chains</span></div>
+      <div class="hero-meta-cell"><span class="val">6</span><span class="lbl">Skill Domains</span></div>
+      <div class="hero-meta-cell"><span class="val">NG</span><span class="lbl">Base Location</span></div>
+      <div class="hero-meta-cell"><span class="val">OPEN</span><span class="lbl">To Opportunities</span></div>
+    </div>
+    <div class="hero-btns-bar">
+      <a href="#projects" class="hero-btn hero-btn-primary"><i class="fas fa-terminal"></i> VIEW_WORK</a>
+      <a href="#contact" class="hero-btn hero-btn-secondary"><i class="fas fa-satellite-dish"></i> HIRE_ME</a>
+      <a href="public/Miracles_Updated_Cv.pdf" download class="hero-btn hero-btn-secondary"><i class="fas fa-download"></i> CV.PDF</a>
+      <div class="hero-status"><span class="status-dot"></span>AVAILABLE FOR CONTRACTS &amp; ROLES</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    &nbsp;//&nbsp; WEB3 ENGINEER &nbsp;//&nbsp; AGENTIC AI BUILDER &nbsp;//&nbsp; DATA ANALYST &nbsp;//&nbsp; IT SUPPORT SPECIALIST &nbsp;//&nbsp; TECH RESEARCHER &nbsp;//&nbsp; CEO MIMISCO TECHNOLOGIES &nbsp;//&nbsp; SMART CONTRACT ARCHITECT &nbsp;//&nbsp; LINUX POWER USER &nbsp;//&nbsp; CROSS-CHAIN DEVELOPER &nbsp;//&nbsp; OPEN TO REMOTE ROLES &nbsp;//&nbsp; WEB3 ENGINEER &nbsp;//&nbsp; AGENTIC AI BUILDER &nbsp;//&nbsp; DATA ANALYST &nbsp;//&nbsp; IT SUPPORT SPECIALIST &nbsp;//&nbsp; TECH RESEARCHER &nbsp;//&nbsp; CEO MIMISCO TECHNOLOGIES &nbsp;//&nbsp; SMART CONTRACT ARCHITECT &nbsp;//&nbsp; LINUX POWER USER &nbsp;//&nbsp; CROSS-CHAIN DEVELOPER &nbsp;//&nbsp; OPEN TO REMOTE ROLES &nbsp;//&nbsp;
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section-pad" id="about">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-num">01</div>
+      <div class="section-header-text">
+        <span class="section-label">// IDENTIFICATION</span>
+        <h2 class="section-title">ABOUT THE ENGINEER</h2>
+        <p class="section-sub">CEO &amp; Lead Engineer — Mimisco Technologies &amp; Resources | Partner, MCJEH Digital</p>
+      </div>
+    </div>
+    <div class="about-layout fade-up">
+      <div class="about-img-col">
+        <img src="public/images/sir_mimisco.webp" alt="Miracle Ugokwe"/>
+        <div class="about-img-overlay">
+          <span class="about-img-tag">MIRACLE C. UGOKWE</span>
+          <span class="about-img-tag" style="background:var(--black);color:var(--green);border:1px solid var(--green);">CEO // MIMISCO TECHNOLOGIES</span>
         </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <div class="px-4 pt-4 pb-6 space-y-3">
-                <a href="#about" class="block text-gray-700 hover:text-purple-600 font-medium py-2">About</a>
-                <a href="#projects" class="block text-gray-700 hover:text-purple-600 font-medium py-2">Projects</a>
-                <a href="#skills" class="block text-gray-700 hover:text-purple-600 font-medium py-2">Skills</a>
-                <a href="#contact" class="block text-gray-700 hover:text-purple-600 font-medium py-2">Contact</a>
-                <a href="public/Miracles_Updated_Cv.pdf" download class="block gradient-bg text-white px-6 py-3 rounded-full font-semibold text-center">
-                    <i class="fas fa-download mr-2"></i>Resume
-                </a>
-            </div>
+      </div>
+      <div class="about-content">
+        <p>I'm a full-stack blockchain engineer, agentic AI builder, data analyst, and IT support specialist based in Owerri / Port Harcourt, Nigeria. As the founder of <strong style="color:var(--white)">Mimisco Technologies &amp; Resources</strong>, I architect autonomous commerce systems, cross-chain financial infrastructure, and AI-powered educational platforms that operate at production scale.</p>
+        <p>My background in <strong style="color:var(--white)">Quantity Surveying Technology</strong> and ongoing <strong style="color:var(--white)">MSc in Procurement Management</strong> gives my engineering a rare commercial edge — I build systems that are technically excellent <em>and</em> commercially grounded. As a dedicated <strong style="color:var(--green)">Linux daily-driver</strong> user, I have deep expertise in system administration, CLI workflows, and open-source development. I conduct structured <strong style="color:var(--white)">academic and technology research</strong> across AI, Web3, and procurement domains.</p>
+        <div class="about-tags">
+          <span class="tag-pill">Solidity</span><span class="tag-pill">Node.js</span>
+          <span class="tag-pill">React / Next.js</span><span class="tag-pill">Python</span>
+          <span class="tag-pill">AI Agents</span><span class="tag-pill">SQL</span>
+          <span class="tag-pill">Linux CLI</span><span class="tag-pill">Power BI</span>
+          <span class="tag-pill">Web3.js / Ethers.js</span><span class="tag-pill">Circle CCTP</span>
+          <span class="tag-pill">Hardhat</span><span class="tag-pill">Bash / Shell</span>
+          <span class="tag-pill">PostgreSQL</span><span class="tag-pill">Docker</span>
         </div>
-    </nav>
+        <div class="edu-row"><i class="fas fa-graduation-cap"></i><div><strong>B.Tech — Quantity Surveying Technology</strong></div><span>Completed · NG</span></div>
+        <div class="edu-row"><i class="fas fa-book-open"></i><div><strong>MSc — Procurement Management</strong></div><span>In View · NG</span></div>
+        <div class="edu-row"><i class="fas fa-shield-halved"></i><div><strong>Cybersecurity Fundamentals</strong></div><span>Ongoing</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Hero Section -->
-    <section class="hero-bg text-white py-32 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="relative z-10">
-                    <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                        Hi! Welcome to<br>My Portfolio
-                    </h2>
-                    <p class="text-xl mb-4 text-gray-100">
-                        Full-stack developer specializing in blockchain technology, Web3 applications, and decentralized systems, with project management and procurement expertise.
-                    </p>
-                    <p class="text-lg mb-8 text-gray-200">
-                        Let's build the future of decentralized technology together.
-                    </p>
-                    <div class="flex gap-4">
-                        <a href="#projects" class="bg-white text-purple-600 px-8 py-4 rounded-full font-bold hover:shadow-2xl transition transform hover:scale-105">
-                            View My Work
-                        </a>
-                        <a href="#contact" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-purple-600 transition">
-                            Get In Touch
-                        </a>
-                    </div>
-                </div>
-                <div class="relative z-10 flex justify-center">
-                    <div class="relative">
-                        <img src="public/images/my_picture.jpeg" alt="Miracle Ugokwe" class="rounded-full w-80 h-80 object-cover border-8 border-white shadow-2xl">
-                        <div class="absolute -bottom-4 -right-4 bg-white text-purple-600 rounded-full p-6 shadow-xl">
-                            <i class="fas fa-code text-4xl"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- SKILLS -->
+<section class="section-pad skills-section" id="skills">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-num">02</div>
+      <div class="section-header-text">
+        <span class="section-label">// CAPABILITY MATRIX</span>
+        <h2 class="section-title">FULL TECH STACK</h2>
+        <p class="section-sub">Six professional domains. All production-proven.</p>
+      </div>
+    </div>
+    <div class="skills-grid fade-up">
+      <div class="skill-group sg-green">
+        <div class="sg-head"><div class="sg-icon"><i class="fas fa-cube"></i></div><div class="sg-title">Blockchain &amp; Web3</div></div>
+        <div class="sg-tags"><span class="sg-tag">Solidity</span><span class="sg-tag">Web3.js</span><span class="sg-tag">Ethers.js</span><span class="sg-tag">Hardhat</span><span class="sg-tag">Circle CCTP</span><span class="sg-tag">Circle App Kit</span><span class="sg-tag">EVM Chains</span><span class="sg-tag">Smart Contracts</span><span class="sg-tag">dApps</span><span class="sg-tag">Arc Testnet</span></div>
+      </div>
+      <div class="skill-group sg-yellow">
+        <div class="sg-head"><div class="sg-icon"><i class="fas fa-brain"></i></div><div class="sg-title">AI &amp; Automation</div></div>
+        <div class="sg-tags"><span class="sg-tag">OpenAI API</span><span class="sg-tag">LangChain</span><span class="sg-tag">Agentic Workflows</span><span class="sg-tag">PDF Parsers</span><span class="sg-tag">AI Chatbots</span><span class="sg-tag">Prompt Engineering</span><span class="sg-tag">Autonomous Agents</span><span class="sg-tag">OOAK Patterns</span></div>
+      </div>
+      <div class="skill-group sg-green">
+        <div class="sg-head"><div class="sg-icon"><i class="fas fa-chart-line"></i></div><div class="sg-title">Data Analysis</div></div>
+        <div class="sg-tags"><span class="sg-tag">Python</span><span class="sg-tag">Pandas</span><span class="sg-tag">NumPy</span><span class="sg-tag">Matplotlib</span><span class="sg-tag">Plotly</span><span class="sg-tag">Power BI</span><span class="sg-tag">SQL</span><span class="sg-tag">Excel</span><span class="sg-tag">On-Chain Analytics</span></div>
+      </div>
+      <div class="skill-group sg-white">
+        <div class="sg-head"><div class="sg-icon"><i class="fas fa-code"></i></div><div class="sg-title">Full-Stack Dev</div></div>
+        <div class="sg-tags"><span class="sg-tag">Node.js</span><span class="sg-tag">Express</span><span class="sg-tag">React</span><span class="sg-tag">Next.js</span><span class="sg-tag">TypeScript</span><span class="sg-tag">PostgreSQL</span><span class="sg-tag">HTML5/CSS3</span><span class="sg-tag">Vercel</span><span class="sg-tag">Railway</span></div>
+      </div>
+      <div class="skill-group sg-yellow">
+        <div class="sg-head"><div class="sg-icon"><i class="fas fa-headset"></i></div><div class="sg-title">IT Support</div></div>
+        <div class="sg-tags"><span class="sg-tag">Windows Admin</span><span class="sg-tag">Linux Debian</span><span class="sg-tag">Networking</span><span class="sg-tag">TCP/IP</span><span class="sg-tag">Active Directory</span><span class="sg-tag">VirtualBox</span><span class="sg-tag">Remote Support</span><span class="sg-tag">Hardware Repair</span></div>
+      </div>
+      <div class="skill-group sg-red">
+        <div class="sg-head"><div class="sg-icon"><i class="fas fa-shield-halved"></i></div><div class="sg-title">DevOps &amp; Security</div></div>
+        <div class="sg-tags"><span class="sg-tag">Git / GitHub</span><span class="sg-tag">Docker</span><span class="sg-tag">Bash Scripting</span><span class="sg-tag">Linux CLI</span><span class="sg-tag">Cybersecurity</span><span class="sg-tag">Risk Analysis</span><span class="sg-tag">Network Security</span><span class="sg-tag">GitHub Actions</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section-pad" id="projects">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-num">03</div>
+      <div class="section-header-text">
+        <span class="section-label">// SHIPPED SYSTEMS</span>
+        <h2 class="section-title">FEATURED PROJECTS</h2>
+        <p class="section-sub">9 production projects across Web3, AI, data analytics, and systems tooling.</p>
+      </div>
+    </div>
+    <div class="projects-filter fade-up">
+      <button class="filter-btn active" data-filter="all">ALL_SYSTEMS</button>
+      <button class="filter-btn" data-filter="web3">WEB3</button>
+      <button class="filter-btn" data-filter="ai">AI/ML</button>
+      <button class="filter-btn" data-filter="data">DATA</button>
+      <button class="filter-btn" data-filter="tools">TOOLS</button>
+    </div>
+    <div class="projects-grid fade-up" id="projects-grid">
+
+      <!-- ScholarOS -->
+      <div class="project-card" data-cats="ai web3 data">
+        <div class="project-thumb">
+          <svg class="project-thumb-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="200" fill="#0a0f0a"/>
+            <rect x="0" y="0" width="400" height="200" fill="url(#grid1)" opacity="0.3"/>
+            <defs><pattern id="grid1" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0L0 0 0 20" fill="none" stroke="#00ff41" stroke-width="0.3"/></pattern></defs>
+            <rect x="20" y="20" width="200" height="14" fill="none" stroke="#00ff41" stroke-width="1"/>
+            <rect x="20" y="20" width="140" height="14" fill="#00ff41" opacity="0.15"/>
+            <text x="26" y="31" fill="#00ff41" font-family="monospace" font-size="8">SCHOLAROS v1.0 // KERNEL BOOT</text>
+            <text x="20" y="55" fill="#00ff41" font-family="monospace" font-size="7" opacity="0.8">&gt; loading ai_tutor_module... OK</text>
+            <text x="20" y="67" fill="#00ff41" font-family="monospace" font-size="7" opacity="0.8">&gt; initializing latex_engine... OK</text>
+            <text x="20" y="79" fill="#00ff41" font-family="monospace" font-size="7" opacity="0.8">&gt; mounting waec_db [12,450 items]... OK</text>
+            <text x="20" y="91" fill="#00ff41" font-family="monospace" font-size="7" opacity="0.8">&gt; mounting jamb_db [8,320 items]... OK</text>
+            <text x="20" y="103" fill="#00ff41" font-family="monospace" font-size="7" opacity="0.8">&gt; student_analytics_daemon... RUNNING</text>
+            <text x="20" y="115" fill="#00ff41" font-family="monospace" font-size="7" opacity="0.8">&gt; adaptive_learning engine... ACTIVE</text>
+            <text x="20" y="135" fill="#00ff41" font-family="monospace" font-size="9" font-weight="bold">SCHOLAR_OS://</text>
+            <text x="20" y="150" fill="#00cc33" font-family="monospace" font-size="7">&gt; system ready. 3 modules online.</text>
+            <rect x="280" y="20" width="100" height="160" fill="none" stroke="#00ff41" stroke-width="0.5" opacity="0.4"/>
+            <text x="330" y="36" fill="#00ff41" font-family="monospace" font-size="6" text-anchor="middle" opacity="0.7">CPU_LOAD</text>
+            <rect x="290" y="40" width="80" height="6" fill="#1a1a1a"/>
+            <rect x="290" y="40" width="56" height="6" fill="#00ff41" opacity="0.7"/>
+            <text x="330" y="58" fill="#00ff41" font-family="monospace" font-size="6" text-anchor="middle" opacity="0.7">MEM_USAGE</text>
+            <rect x="290" y="62" width="80" height="6" fill="#1a1a1a"/>
+            <rect x="290" y="62" width="38" height="6" fill="#f5e642" opacity="0.7"/>
+            <text x="330" y="80" fill="#00ff41" font-family="monospace" font-size="6" text-anchor="middle" opacity="0.7">STUDENTS</text>
+            <text x="330" y="92" fill="#00ff41" font-family="monospace" font-size="11" text-anchor="middle" font-weight="bold">1,240</text>
+          </svg>
+          <div class="project-num">01</div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <img src="public/images/sir_mimisco.png" alt="Miracle Ugokwe Portrait" class="rounded-3xl shadow-2xl">
-                </div>
-                <div>
-                    <h2 class="text-4xl font-bold mb-4 section-title">Miracle C. Ugokwe</h2>
-                    <h3 class="text-xl text-purple-600 font-semibold mb-6">Know more About me</h3>
-                    
-                    <p class="text-gray-700 mb-4 leading-relaxed">
-                        Full-stack developer, blockchain specialist, and project management professional with a unique blend of technical and procurement expertise. With a background in Quantity Surveying Technology and pursuing an MSc in Procurement Management, I bring a strategic approach to building Web3 applications including dApps, token faucets, blockchain trackers, wallet dashboards, and autonomous trading systems using Solidity, JavaScript, React, Node.js, Python, and HTML5/CSS3.
-                    </p>
-                    
-                    <p class="text-gray-700 mb-4 leading-relaxed">
-                        As a dedicated Linux user (daily driver), I have deep expertise in Linux system administration, command-line operations, and open-source development workflows. My expertise spans full-stack development, construction project management, and security-conscious coding practices. With growing knowledge in cybersecurity fundamentals, network security, and risk analysis, I continuously expand my technical skillset while applying security principles to all development work.
-                    </p>
-                    
-                    <p class="text-gray-700 mb-6 leading-relaxed">
-                        Passionate about bridging blockchain technology with traditional project management methodologies, I leverage my dual expertise to ensure timely, cost-effective delivery of technical solutions. My technical toolkit includes Web3.js, Ethers.js, Hardhat, Shell scripting, Python for data analysis and automation, and comprehensive knowledge of Linux environments and construction industry procurement processes.
-                    </p>
-
-                    <div class="flex gap-4 mt-8">
-                        <a href="/cdn-cgi/l/email-protection#3f4c564d525652564c5c507f465e575050115c5052" class="social-link hover:text-purple-600">
-                            <i class="fas fa-envelope text-xl"></i>
-                        </a>
-                        <a href="https://wa.me/2348068808654" target="_blank" class="social-link hover:text-green-600">
-                            <i class="fab fa-whatsapp text-xl"></i>
-                        </a>
-                        <a href="https://x.com/Sir_Mimisco" target="_blank" class="social-link hover:text-blue-400">
-                            <i class="fab fa-twitter text-xl"></i>
-                        </a>
-                        <a href="https://github.com/mimisco-git" target="_blank" class="social-link hover:text-gray-800">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                        <a href="https://github.com/Alukadex" target="_blank" class="social-link hover:text-gray-800">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/miracle-ugokwe-641773a6/" target="_blank" class="social-link hover:text-blue-700">
-                            <i class="fab fa-linkedin text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <div class="project-body">
+          <div class="project-cats"><span class="project-cat">AI</span><span class="project-cat">EDTECH</span><span class="project-cat">DATA</span></div>
+          <div class="project-title">SCHOLAROS</div>
+          <div class="project-desc">AI-driven virtual OS for Nigerian academic excellence. JAMB, WAEC &amp; ICAN prep with LaTeX-enabled tutoring, adaptive learning paths, and student performance analytics.</div>
+          <div class="project-links"><a href="#" class="project-link"><i class="fas fa-info-circle"></i> DETAILS</a></div>
         </div>
-    </section>
+      </div>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4 section-title inline-block">Featured Projects</h2>
-                <p class="text-gray-600 text-lg mt-8">A collection of my recent work and experiments</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Project 1: IOPN Hub -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-lg card-hover">
-                    <img src="public/images/iopn-hub.png" alt="IOPN Hub" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="project-tag">HTML5</span>
-                            <span class="project-tag">CSS3</span>
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">Web3</span>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3">IOPN Hub Progress Tracker</h3>
-                        <p class="text-gray-600 mb-4">
-                            Web3 dashboard with reputation system, social connections tracking, achievement gamification, and activity heatmap visualization for blockchain networks.
-                        </p>
-                        <div class="flex gap-3">
-                            <a href="#" class="text-purple-600 hover:text-purple-800 font-semibold">
-                                Live Demo <i class="fas fa-external-link-alt ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: Arc Testnet Tracker -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-lg card-hover">
-                    <img src="public/images/arc-hub.png" alt="Arc Testnet Tracker" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">BlockScout API</span>
-                            <span class="project-tag">DeFi</span>
-                            <span class="project-tag">Analytics</span>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3">Arc Testnet Progress Tracker</h3>
-                        <p class="text-gray-600 mb-4">
-                            Real-time blockchain analytics platform fetching transaction data via BlockScout API with DeFi activity categorization and wallet level gamification.
-                        </p>
-                        <div class="flex gap-3">
-                            <a href="#" class="text-purple-600 hover:text-purple-800 font-semibold">
-                                Live Demo <i class="fas fa-external-link-alt ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: Alukadex Trading Bot -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-lg card-hover">
-                    <div class="w-full h-56 gradient-bg flex items-center justify-center">
-                        <i class="fas fa-robot text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Node.js</span>
-                            <span class="project-tag">Trading</span>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3">Alukadex Trading Bot</h3>
-                        <p class="text-gray-600 mb-4">
-                            Autonomous multi-chain trading agent with real-time market analysis, volatility adaptation, and automated execution via Recall Trading API.
-                        </p>
-                        <div class="flex gap-3">
-                            <a href="https://github.com/Alukadex/Alukadex-Bot" target="_blank" class="text-purple-600 hover:text-purple-800 font-semibold">
-                                GitHub <i class="fab fa-github ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4: SpecFetch -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-lg card-hover">
-                    <img src="public/images/vscode.png" alt="SpecFetch" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="project-tag">Shell Script</span>
-                            <span class="project-tag">Bash</span>
-                            <span class="project-tag">Linux</span>
-                            <span class="project-tag">CLI</span>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3">SpecFetch</h3>
-                        <p class="text-gray-600 mb-4">
-                            Custom Linux system information fetcher with detailed hardware specs, lightweight bash implementation, and automated installation for diagnostics.
-                        </p>
-                        <div class="flex gap-3">
-                            <a href="https://github.com/Alukadex/specfetch" target="_blank" class="text-purple-600 hover:text-purple-800 font-semibold">
-                                GitHub <i class="fab fa-github ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5: Mimi.AI Chatbot -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-lg card-hover">
-                    <div class="w-full h-56 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
-                        <i class="fas fa-comments text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="project-tag">HTML5</span>
-                            <span class="project-tag">CSS3</span>
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">AI</span>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3">Mimi.AI Chatbot</h3>
-                        <p class="text-gray-600 mb-4">
-                            Interactive AI-powered chat interface with conversational AI implementation, clean responsive design, and real-time functionality.
-                        </p>
-                        <div class="flex gap-3">
-                            <a href="https://github.com/Alukadex/mimi.ai" target="_blank" class="text-purple-600 hover:text-purple-800 font-semibold">
-                                GitHub <i class="fab fa-github ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+      <!-- Stablelane -->
+      <div class="project-card" data-cats="web3">
+        <div class="project-thumb">
+          <svg class="project-thumb-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="200" fill="#0a0a08"/>
+            <defs><pattern id="grid2" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0L0 0 0 24" fill="none" stroke="#f5e642" stroke-width="0.25"/></pattern></defs>
+            <rect width="400" height="200" fill="url(#grid2)" opacity="0.2"/>
+            <rect x="20" y="20" width="100" height="50" fill="none" stroke="#f5e642" stroke-width="1"/>
+            <text x="70" y="40" fill="#f5e642" font-family="monospace" font-size="7" text-anchor="middle">INVOICE #0042</text>
+            <text x="70" y="52" fill="#f5e642" font-family="monospace" font-size="9" text-anchor="middle" font-weight="bold">$2,400 USDC</text>
+            <text x="70" y="64" fill="#f5e642" font-family="monospace" font-size="6" text-anchor="middle" opacity="0.6">MILESTONE 1/3</text>
+            <line x1="120" y1="45" x2="160" y2="45" stroke="#00ff41" stroke-width="1.5" marker-end="url(#arr)"/>
+            <defs><marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6Z" fill="#00ff41"/></marker></defs>
+            <rect x="160" y="20" width="80" height="50" fill="#00ff41" opacity="0.08" stroke="#00ff41" stroke-width="1"/>
+            <text x="200" y="36" fill="#00ff41" font-family="monospace" font-size="6" text-anchor="middle">ESCROW</text>
+            <text x="200" y="48" fill="#00ff41" font-family="monospace" font-size="8" text-anchor="middle" font-weight="bold">LOCKED</text>
+            <text x="200" y="60" fill="#00ff41" font-family="monospace" font-size="6" text-anchor="middle">ARC TESTNET</text>
+            <line x1="240" y1="45" x2="280" y2="45" stroke="#00ff41" stroke-width="1.5" marker-end="url(#arr)"/>
+            <rect x="280" y="20" width="100" height="50" fill="none" stroke="#00ff41" stroke-width="1"/>
+            <text x="330" y="40" fill="#00ff41" font-family="monospace" font-size="7" text-anchor="middle">RECIPIENT</text>
+            <text x="330" y="52" fill="#00ff41" font-family="monospace" font-size="9" text-anchor="middle" font-weight="bold">RELEASED</text>
+            <text x="20" y="100" fill="#f5e642" font-family="monospace" font-size="7">TX: 0x4f2a...8c91</text>
+            <text x="20" y="113" fill="#f5e642" font-family="monospace" font-size="7">BLOCK: #1,429,044</text>
+            <text x="20" y="126" fill="#00ff41" font-family="monospace" font-size="7">STATUS: CONFIRMED ✓</text>
+            <text x="20" y="155" fill="#f5e642" font-family="monospace" font-size="10" font-weight="bold">STABLELANE://ESCROW</text>
+            <text x="20" y="170" fill="#888" font-family="monospace" font-size="6">trust-minimized · stablecoin-native · milestone-gated</text>
+          </svg>
+          <div class="project-num">02</div>
         </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4 section-title inline-block">Key Expertise</h2>
-                <p class="text-gray-600 text-lg mt-8">Quality in every detail</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
-                
-                <!-- Skill 1 -->
-                <div class="skill-card text-center">
-                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-cubes text-white text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Web3 & Blockchain Development</h3>
-                    <p class="text-gray-600">
-                        Building decentralized applications, smart contracts, and Web3 interfaces with Solidity, Web3.js, and Ethers.js.
-                    </p>
-                </div>
-
-                <!-- Skill 2 -->
-                <div class="skill-card text-center">
-                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fab fa-linux text-white text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Linux System Administration</h3>
-                    <p class="text-gray-600">
-                        Daily Linux user with expertise in system administration, command-line operations, and open-source workflows.
-                    </p>
-                </div>
-
-                <!-- Skill 3 -->
-                <div class="skill-card text-center">
-                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-shield-alt text-white text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Risk Analysis & Security</h3>
-                    <p class="text-gray-600">
-                        Security-conscious development with growing expertise in cybersecurity, network security, and risk analysis.
-                    </p>
-                </div>
-
-                <!-- Skill 4 -->
-                <div class="skill-card text-center">
-                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-tasks text-white text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Project Management & Procurement</h3>
-                    <p class="text-gray-600">
-                        Strategic project delivery with expertise in procurement management, resource allocation, and construction projects.
-                    </p>
-                </div>
-
-                <!-- Skill 5 -->
-                <div class="skill-card text-center">
-                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-headset text-white text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">IT Support & Infrastructure</h3>
-                    <p class="text-gray-600">
-                        Comprehensive IT support services including system troubleshooting, hardware/software installations, network management, and remote technical support.
-                    </p>
-                </div>
-
-            </div>
+        <div class="project-body">
+          <div class="project-cats"><span class="project-cat">WEB3</span><span class="project-cat">DEFI</span><span class="project-cat">ESCROW</span></div>
+          <div class="project-title">STABLELANE</div>
+          <div class="project-desc">Stablecoin invoicing and milestone escrow platform on Arc testnet. Trust-minimised payment flows for freelancers, businesses, and cross-border contracts.</div>
+          <div class="project-links"><a href="#" class="project-link"><i class="fas fa-info-circle"></i> DETAILS</a></div>
         </div>
-    </section>
+      </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 hero-bg text-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold mb-6">Let's Build Something Amazing</h2>
-            <p class="text-xl mb-12 text-gray-100">
-                Ready to collaborate on your next blockchain or Web3 project? Get in touch!
-            </p>
-            
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
-                <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-6">
-                    <i class="fas fa-envelope text-4xl mb-4"></i>
-                    <h3 class="font-bold mb-2">Email</h3>
-                    <a href="/cdn-cgi/l/email-protection#cebda7bca3a7a3a7bdada18eb7afa6a1a1e0ada1a3" class="text-gray-200 hover:text-white"><span class="__cf_email__" data-cfemail="d7a4bea5babebabea4b4b897aeb6bfb8b8f9b4b8ba">[email&#160;protected]</span></a>
-                </div>
-                <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-6">
-                    <i class="fab fa-whatsapp text-4xl mb-4"></i>
-                    <h3 class="font-bold mb-2">WhatsApp</h3>
-                    <a href="https://wa.me/2348068808654" target="_blank" class="text-gray-200 hover:text-white">+234 806 880 8654</a>
-                </div>
-                <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-6">
-                    <i class="fas fa-map-marker-alt text-4xl mb-4"></i>
-                    <h3 class="font-bold mb-2">Location</h3>
-                    <p class="text-gray-200">Lagos, Nigeria</p>
-                </div>
-            </div>
-
-            <div class="flex justify-center gap-4">
-                <a href="https://x.com/Sir_Mimisco" target="_blank" class="social-link bg-white bg-opacity-10 hover:bg-opacity-20 text-white border-2 border-white">
-                    <i class="fab fa-twitter text-xl"></i>
-                </a>
-                <a href="https://github.com/mimisco-git" target="_blank" class="social-link bg-white bg-opacity-10 hover:bg-opacity-20 text-white border-2 border-white">
-                    <i class="fab fa-github text-xl"></i>
-                </a>
-                <a href="https://github.com/Alukadex" target="_blank" class="social-link bg-white bg-opacity-10 hover:bg-opacity-20 text-white border-2 border-white">
-                    <i class="fab fa-github text-xl"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/miracle-ugokwe-641773a6/" target="_blank" class="social-link bg-white bg-opacity-10 hover:bg-opacity-20 text-white border-2 border-white">
-                    <i class="fab fa-linkedin text-xl"></i>
-                </a>
-            </div>
+      <!-- XyloBridge -->
+      <div class="project-card" data-cats="web3">
+        <div class="project-thumb">
+          <svg class="project-thumb-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="200" fill="#080810"/>
+            <defs><pattern id="grid3" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0L0 0 0 20" fill="none" stroke="#4444aa" stroke-width="0.3"/></pattern></defs>
+            <rect width="400" height="200" fill="url(#grid3)" opacity="0.4"/>
+            <text x="12" y="22" fill="#6666ff" font-family="monospace" font-size="7">CHAIN_A: ETHEREUM</text>
+            <rect x="12" y="28" width="80" height="28" fill="#0a0a20" stroke="#6666ff" stroke-width="1"/>
+            <text x="52" y="46" fill="#6666ff" font-family="monospace" font-size="8" text-anchor="middle" font-weight="bold">0x4f2a</text>
+            <text x="12" y="75" fill="#6666ff" font-family="monospace" font-size="7">CHAIN_B: POLYGON</text>
+            <rect x="12" y="81" width="80" height="28" fill="#0a0a20" stroke="#6666ff" stroke-width="1"/>
+            <text x="52" y="99" fill="#6666ff" font-family="monospace" font-size="8" text-anchor="middle" font-weight="bold">0x4f2a</text>
+            <text x="12" y="128" fill="#6666ff" font-family="monospace" font-size="7">CHAIN_C: ARBITRUM</text>
+            <rect x="12" y="134" width="80" height="28" fill="#0a0a20" stroke="#6666ff" stroke-width="1"/>
+            <text x="52" y="152" fill="#6666ff" font-family="monospace" font-size="8" text-anchor="middle" font-weight="bold">0x4f2a</text>
+            <rect x="160" y="60" width="80" height="80" fill="#00ff41" opacity="0.06" stroke="#00ff41" stroke-width="1.5"/>
+            <text x="200" y="90" fill="#00ff41" font-family="monospace" font-size="7" text-anchor="middle">CCTP</text>
+            <text x="200" y="103" fill="#00ff41" font-family="monospace" font-size="7" text-anchor="middle">BRIDGE</text>
+            <text x="200" y="116" fill="#00ff41" font-family="monospace" font-size="6" text-anchor="middle">USDC-NATIVE</text>
+            <line x1="92" y1="42" x2="158" y2="90" stroke="#00ff41" stroke-width="1" opacity="0.6" stroke-dasharray="4,3"/>
+            <line x1="92" y1="95" x2="158" y2="100" stroke="#00ff41" stroke-width="1.5" opacity="0.9"/>
+            <line x1="92" y1="148" x2="158" y2="110" stroke="#00ff41" stroke-width="1" opacity="0.6" stroke-dasharray="4,3"/>
+            <text x="308" y="22" fill="#ff9900" font-family="monospace" font-size="7">+18 MORE CHAINS</text>
+            <rect x="308" y="28" width="80" height="28" fill="#0a0a20" stroke="#ff9900" stroke-width="1"/>
+            <text x="348" y="46" fill="#ff9900" font-family="monospace" font-size="7" text-anchor="middle">BASE/OP/AVA</text>
+            <line x1="240" y1="100" x2="306" y2="42" stroke="#00ff41" stroke-width="1" opacity="0.5" stroke-dasharray="4,3"/>
+            <text x="200" y="170" fill="#00ff41" font-family="monospace" font-size="9" text-anchor="middle" font-weight="bold">XYLOBRIDGE V2 // 20+ EVM</text>
+          </svg>
+          <div class="project-num">03</div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-gray-400">
-                © 2025 Miracle C. Ugokwe | Full-Stack Blockchain Developer
-            </p>
-            <p class="text-gray-500 text-sm mt-2">
-                Built with passion for decentralized technology
-            </p>
+        <div class="project-body">
+          <div class="project-cats"><span class="project-cat">WEB3</span><span class="project-cat">CCTP</span><span class="project-cat">CROSS-CHAIN</span></div>
+          <div class="project-title">XYLOBRIDGE V2</div>
+          <div class="project-desc">Advanced cross-chain USDC bridging protocol supporting 20+ EVM chains with single-signature efficiency via Circle CCTP. Minimal gas, maximum reach.</div>
+          <div class="project-links"><a href="#" class="project-link"><i class="fas fa-info-circle"></i> DETAILS</a></div>
         </div>
-    </footer>
+      </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+      <!-- Alukadex Bot -->
+      <div class="project-card" data-cats="ai data">
+        <div class="project-thumb">
+          <svg class="project-thumb-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="200" fill="#080a08"/>
+            <defs><pattern id="grid4" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M16 0L0 0 0 16" fill="none" stroke="#003300" stroke-width="0.5"/></pattern></defs>
+            <rect width="400" height="200" fill="url(#grid4)"/>
+            <polyline points="20,160 50,140 80,150 110,110 140,130 170,90 200,105 230,70 260,85 290,55 320,72 350,40 380,50" fill="none" stroke="#00ff41" stroke-width="1.5"/>
+            <polyline points="20,160 50,140 80,150 110,110 140,130 170,90" fill="none" stroke="#00ff41" stroke-width="2.5" opacity="0.4"/>
+            <line x1="230" y1="20" x2="230" y2="180" stroke="#ff3333" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+            <text x="232" y="30" fill="#ff3333" font-family="monospace" font-size="6">ENTRY: $1.847</text>
+            <rect x="230" y="70" width="60" height="15" fill="#00ff41" opacity="0.1" stroke="#00ff41" stroke-width="0.5"/>
+            <text x="260" y="81" fill="#00ff41" font-family="monospace" font-size="6" text-anchor="middle">BUY SIGNAL</text>
+            <text x="20" y="185" fill="#00ff41" font-family="monospace" font-size="6">VOL:HIGH</text>
+            <text x="80" y="185" fill="#f5e642" font-family="monospace" font-size="6">RSI:62.4</text>
+            <text x="140" y="185" fill="#00ff41" font-family="monospace" font-size="6">MACD:+</text>
+            <text x="200" y="185" fill="#00ff41" font-family="monospace" font-size="6">P&amp;L:+18.4%</text>
+            <rect x="20" y="20" width="130" height="30" fill="#0a0a0a" stroke="#00ff41" stroke-width="0.5"/>
+            <text x="26" y="32" fill="#00ff41" font-family="monospace" font-size="6">ALUKADEX_BOT v2</text>
+            <text x="26" y="43" fill="#00cc33" font-family="monospace" font-size="6">STATUS: TRADING ●</text>
+          </svg>
+          <div class="project-num">04</div>
+        </div>
+        <div class="project-body">
+          <div class="project-cats"><span class="project-cat">AI</span><span class="project-cat">TRADING</span><span class="project-cat">AUTOMATION</span></div>
+          <div class="project-title">ALUKADEX TRADING BOT</div>
+          <div class="project-desc">Autonomous multi-chain trading agent with real-time market analysis, volatility adaptation, and automated execution via Recall Trading API.</div>
+          <div class="project-links">
+            <a href="https://github.com/Alukadex/Alukadex-Bot" target="_blank" class="project-link"><i class="fab fa-github"></i> GITHUB</a>
+          </div>
+        </div>
+      </div>
 
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu if open
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
+      <!-- Arc Testnet Tracker -->
+      <div class="project-card" data-cats="web3 data">
+        <div class="project-thumb">
+          <img src="public/images/arc-hub.webp" alt="Arc Testnet Progress Tracker" style="width:100%;height:100%;object-fit:cover;filter:contrast(1.05) saturate(0.9);"/>
+          <div class="project-num">05</div>
+        </div>
+        <div class="project-body">
+          <div class="project-cats"><span class="project-cat">WEB3</span><span class="project-cat">ANALYTICS</span><span class="project-cat">DATA</span></div>
+          <div class="project-title">ARC TESTNET TRACKER</div>
+          <div class="project-desc">Real-time blockchain analytics dashboard fetching transaction data via BlockScout API with DeFi activity categorisation, wallet scoring, and gamification.</div>
+          <div class="project-links"><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> LIVE DEMO</a></div>
+        </div>
+      </div>
 
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+      <!-- IOPN Hub -->
+      <div class="project-card" data-cats="web3 data">
+        <div class="project-thumb">
+          <img src="public/images/iopn-hub.webp" alt="IOPN Hub Progress Tracker" style="width:100%;height:100%;object-fit:cover;filter:contrast(1.05) saturate(0.9);"/>
+          <div class="project-num">06</div>
+        </div>
+        <div class="project-body">
+          <div class="project-cats"><span class="project-cat">WEB3</span><span class="project-cat">DASHBOARD</span></div>
+          <div class="project-title">IOPN HUB TRACKER</div>
+          <div class="project-desc">Web3 dashboard with reputation system, social connections tracking, achievement gamification, and activity heatmap visualisation for blockchain networks.</div>
+          <div class="project-links"><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> LIVE DEMO</a></div>
+        </div>
+      </div>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+      <!-- CopyVestPro -->
+      <div class="project-card" data-cats="web3 data ai">
+        <div class="project-thumb">
+          <svg class="project-thumb-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="200" fill="#080810"/>
+            <defs><pattern id="grid5" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M18 0L0 0 0 18" fill="none" stroke="#222244" stroke-width="0.5"/></pattern></defs>
+            <rect width="400" height="200" fill="url(#grid5)"/>
+            <rect x="20" y="20" width="80" height="40" fill="#0d0d1a" stroke="#6666ff" stroke-width="1"/>
+            <text x="60" y="35" fill="#6666ff" font-family="monospace" font-size="6" text-anchor="middle">PORTFOLIO</text>
+            <text x="60" y="48" fill="#00ff41" font-family="monospace" font-size="9" text-anchor="middle" font-weight="bold">+22.4%</text>
+            <rect x="115" y="20" width="80" height="40" fill="#0d0d1a" stroke="#f5e642" stroke-width="1"/>
+            <text x="155" y="35" fill="#f5e642" font-family="monospace" font-size="6" text-anchor="middle">RISK SCORE</text>
+            <text x="155" y="48" fill="#f5e642" font-family="monospace" font-size="9" text-anchor="middle" font-weight="bold">LOW: 2.1</text>
+            <rect x="210" y="20" width="80" height="40" fill="#0d0d1a" stroke="#00ff41" stroke-width="1"/>
+            <text x="250" y="35" fill="#00ff41" font-family="monospace" font-size="6" text-anchor="middle">COPY TRADES</text>
+            <text x="250" y="48" fill="#00ff41" font-family="monospace" font-size="9" text-anchor="middle" font-weight="bold">1,204</text>
+            <rect x="305" y="20" width="75" height="40" fill="#0d0d1a" stroke="#ff3333" stroke-width="1"/>
+            <text x="342" y="35" fill="#ff3333" font-family="monospace" font-size="6" text-anchor="middle">DRAWDOWN</text>
+            <text x="342" y="48" fill="#ff3333" font-family="monospace" font-size="9" text-anchor="middle" font-weight="bold">-3.2%</text>
+            <rect x="20" y="75" width="360" height="70" fill="#08080f" stroke="#333355" stroke-width="1"/>
+            <polyline points="30,130 60,115 90,120 120,100 150,108 180,88 210,95 240,78 270,85 300,65 330,74 360,55 380,62" fill="none" stroke="#6666ff" stroke-width="1.5"/>
+            <polyline points="30,138 60,130 90,125 120,118 150,122 180,115 210,108 240,112 270,105 300,100 330,95 360,88 380,84" fill="none" stroke="#00ff41" stroke-width="1" stroke-dasharray="3,2" opacity="0.7"/>
+            <text x="25" y="160" fill="#6666ff" font-family="monospace" font-size="6">— PORTFOLIO</text>
+            <text x="100" y="160" fill="#00ff41" font-family="monospace" font-size="6">--- BENCHMARK</text>
+            <text x="20" y="185" fill="#6666ff" font-family="monospace" font-size="8" font-weight="bold">COPYVESTPRO // FINTECH AUTOMATION</text>
+          </svg>
+          <div class="project-num">07</div>
+        </div>
+        <div class="project-body">
+          <div class="project-cats"><span class="project-cat">FINTECH</span><span class="project-cat">AI</span><span class="project-cat">DATA</span></div>
+          <div class="project-title">COPYVESTPRO</div>
+          <div class="project-desc">High-end fintech platform for copy-trading and investment automation with trade performance metrics, risk scoring, and institutional-grade portfolio mirroring.</div>
+          <div class="project-links"><a href="#" class="project-link"><i class="fas fa-info-circle"></i> DETAILS</a></div>
+        </div>
+      </div>
 
-        // Observe all cards
-        document.que
+      <!-- SpecFetch -->
+      <div class="project-card" data-cats="tools">
+        <div class="project-thumb">
+          <img src="public/images/vscode.webp" alt="SpecFetch" style="width:100%;height:100%;object-fit:cover;filter:contrast(1.1) saturate(0.8);"/>
+          <div class="project-num">08</div>
+        </div>
+        <div class="project-body">
+          <div class="project-cats"><span class="project-cat">LINUX</span><span class="project-cat">BASH</span><span class="project-cat">CLI</span></div>
+          <div class="project-title">SPECFETCH</div>
+          <div class="project-desc">Custom Linux system information fetcher with detailed hardware specs, lightweight bash implementation, and one-line automated installation for rapid diagnostics.</div>
+          <div class="project-links">
+            <a href="https://github.com/Alukadex/specfetch" target="_blank" class="project-link"><i class="fab fa-github"></i> GITHUB</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mimi.AI -->
+      <div class="project-card" data-cats="ai tools">
+        <div class="project-thumb">
+          <svg class="project-thumb-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="200" fill="#08080f"/>
+            <defs><pattern id="grid6" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0L0 0 0 20" fill="none" stroke="#1a1a33" stroke-width="0.5"/></pattern></defs>
+            <rect width="400" height="200" fill="url(#grid6)"/>
+            <rect x="20" y="15" width="260" height="22" fill="#0d0d1a" stroke="#333366" stroke-width="1"/>
+            <text x="26" y="30" fill="#6666ff" font-family="monospace" font-size="7">MIMI.AI // CONVERSATIONAL ENGINE v1</text>
+            <rect x="40" y="48" width="180" height="18" fill="#1a1a2e" stroke="#6666ff" stroke-width="0.5"/>
+            <text x="48" y="60" fill="#aaaaff" font-family="monospace" font-size="7">USER: analyze my smart contract</text>
+            <rect x="20" y="76" width="200" height="18" fill="#0d1a0d" stroke="#00ff41" stroke-width="0.5"/>
+            <text x="28" y="88" fill="#00ff41" font-family="monospace" font-size="7">MIMI: scanning bytecode...</text>
+            <rect x="20" y="104" width="240" height="18" fill="#0d1a0d" stroke="#00ff41" stroke-width="0.5"/>
+            <text x="28" y="116" fill="#00ff41" font-family="monospace" font-size="7">MIMI: found 2 issues, 0 critical</text>
+            <rect x="40" y="132" width="160" height="18" fill="#1a1a2e" stroke="#6666ff" stroke-width="0.5"/>
+            <text x="48" y="144" fill="#aaaaff" font-family="monospace" font-size="7">USER: explain reentrancy attack</text>
+            <rect x="20" y="158" width="300" height="18" fill="#0d1a0d" stroke="#00ff41" stroke-width="0.5"/>
+            <text x="28" y="170" fill="#00ff41" font-family="monospace" font-size="7">MIMI: a reentrancy attack occurs when...</text>
+            <text x="20" y="192" fill="#6666ff" font-family="monospace" font-size="7" opacity="0.6">model: gpt-4o · latency: 340ms · tokens: 1,204</text>
+          </svg>
+          <div class="project-num">09</div>
+        </div>
+        <div class="project-body">
+          <div class="project-cats"><span class="project-cat">AI</span><span class="project-cat">JAVASCRIPT</span></div>
+          <div class="project-title">MIMI.AI CHATBOT</div>
+          <div class="project-desc">Interactive AI-powered chat interface with conversational AI, clean responsive design, and real-time message handling built for developer queries.</div>
+          <div class="project-links">
+            <a href="https://github.com/Alukadex/mimi.ai" target="_blank" class="project-link"><i class="fab fa-github"></i> GITHUB</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section-pad exp-section" id="experience">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-num">04</div>
+      <div class="section-header-text">
+        <span class="section-label">// OPERATIONAL LOG</span>
+        <h2 class="section-title">EXPERIENCE &amp; RESEARCH</h2>
+        <p class="section-sub">Career history, academic background, and active research domains.</p>
+      </div>
+    </div>
+    <div class="exp-grid fade-up">
+      <div class="exp-col">
+        <div class="exp-col-head">// WORK &amp; LEADERSHIP</div>
+        <div class="timeline-item">
+          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <div class="tl-title">CEO &amp; Lead Engineer</div>
+            <div class="tl-org">Mimisco Technologies &amp; Resources</div>
+            <div class="tl-period">2022 — PRESENT</div>
+            <div class="tl-desc">Founding and leading development of agentic AI systems, cross-chain Web3 infrastructure, fintech platforms, and AI-powered educational technology across Nigeria.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-left"><div class="tl-dot tl-dot-purple"></div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <div class="tl-title">Technical Partner</div>
+            <div class="tl-org tl-org-y">MCJEH Digital</div>
+            <div class="tl-period">2023 — PRESENT</div>
+            <div class="tl-desc">Co-developing digital solutions, technical consulting, and product strategy for client projects across Web3, AI, and full-stack domains.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-left"><div class="tl-dot tl-dot-gray"></div></div>
+          <div class="tl-right">
+            <div class="tl-title">IT Support Specialist</div>
+            <div class="tl-org tl-org-g">Independent / Contract</div>
+            <div class="tl-period">2021 — PRESENT</div>
+            <div class="tl-desc">Hardware diagnosis, OS administration, network setup, and end-user support across Windows and Linux (Debian) environments. Remote and on-site.</div>
+          </div>
+        </div>
+      </div>
+      <div class="exp-col">
+        <div class="exp-col-head" style="color:var(--yellow);">// RESEARCH &amp; EDUCATION</div>
+        <div class="timeline-item">
+          <div class="tl-left"><div class="tl-dot tl-dot-purple"></div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <div class="tl-title">Agentic AI &amp; Web3 Research</div>
+            <div class="tl-org tl-org-y">Independent Research</div>
+            <div class="tl-period">2023 — PRESENT</div>
+            <div class="tl-desc">Structured research on autonomous agent orchestration, LLM capability mapping, cross-chain protocol design, and DeFi system architecture patterns.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <div class="tl-title">MSc — Procurement Management</div>
+            <div class="tl-org">Nigeria</div>
+            <div class="tl-period">IN VIEW</div>
+            <div class="tl-desc">Graduate programme on supply chain strategy, contract management, cost modelling, and procurement risk in construction and tech sectors.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-left"><div class="tl-dot tl-dot-gray"></div></div>
+          <div class="tl-right">
+            <div class="tl-title">B.Tech — Quantity Surveying</div>
+            <div class="tl-org tl-org-g">Nigeria</div>
+            <div class="tl-period">COMPLETED</div>
+            <div class="tl-desc">Technical degree covering cost estimation, project valuation, procurement law, and construction project management methodologies.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section-pad services-section" id="services">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-num">05</div>
+      <div class="section-header-text">
+        <span class="section-label">// AVAILABLE MODULES</span>
+        <h2 class="section-title">SERVICES &amp; OPEN ROLES</h2>
+        <p class="section-sub">All six domains are active. Remote-first. Available globally.</p>
+      </div>
+    </div>
+    <div class="services-grid fade-up">
+      <div class="service-item">
+        <span class="service-num">SVC_01 //</span>
+        <div class="service-title">WEB3 ENGINEERING</div>
+        <div class="service-desc">Smart contracts, dApps, cross-chain bridges, DeFi protocols, wallet dashboards, token systems, and on-chain analytics platforms.</div>
+        <div class="service-tags"><span class="service-tag">Solidity</span><span class="service-tag">Hardhat</span><span class="service-tag">CCTP</span><span class="service-tag">EVM</span></div>
+      </div>
+      <div class="service-item">
+        <span class="service-num">SVC_02 //</span>
+        <div class="service-title">AGENTIC AI SYSTEMS</div>
+        <div class="service-desc">Autonomous workflow design, LLM integration, AI chatbots, PDF data ingestion pipelines, and agent orchestration for production environments.</div>
+        <div class="service-tags"><span class="service-tag">OpenAI</span><span class="service-tag">LangChain</span><span class="service-tag">Agents</span><span class="service-tag">Python</span></div>
+      </div>
+      <div class="service-item">
+        <span class="service-num">SVC_03 //</span>
+        <div class="service-title">DATA ANALYSIS</div>
+        <div class="service-desc">Data wrangling, EDA, Power BI dashboards, on-chain analytics, automated reporting pipelines, and procurement cost modelling.</div>
+        <div class="service-tags"><span class="service-tag">Pandas</span><span class="service-tag">Power BI</span><span class="service-tag">SQL</span><span class="service-tag">Plotly</span></div>
+      </div>
+      <div class="service-item">
+        <span class="service-num">SVC_04 //</span>
+        <div class="service-title">IT SUPPORT</div>
+        <div class="service-desc">Hardware diagnosis, OS administration (Windows/Linux), networking, remote support, endpoint security, and system troubleshooting.</div>
+        <div class="service-tags"><span class="service-tag">Linux</span><span class="service-tag">Networking</span><span class="service-tag">AD</span><span class="service-tag">Remote</span></div>
+      </div>
+      <div class="service-item">
+        <span class="service-num">SVC_05 //</span>
+        <div class="service-title">TECH RESEARCH</div>
+        <div class="service-desc">Academic literature reviews, tech trend analysis, quantitative research methods, structured reports, and research paper composition.</div>
+        <div class="service-tags"><span class="service-tag">Academic</span><span class="service-tag">Analysis</span><span class="service-tag">Reports</span></div>
+      </div>
+      <div class="service-item">
+        <span class="service-num">SVC_06 //</span>
+        <div class="service-title">PROCUREMENT &amp; PM</div>
+        <div class="service-desc">Project delivery, supplier evaluation, cost estimation, contract risk analysis, and construction procurement consulting grounded in formal training.</div>
+        <div class="service-tags"><span class="service-tag">Procurement</span><span class="service-tag">QS</span><span class="service-tag">Cost Est.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section-pad contact-section" id="contact">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-num">06</div>
+      <div class="section-header-text">
+        <span class="section-label">// OPEN CHANNEL</span>
+        <h2 class="section-title">ESTABLISH CONNECTION</h2>
+        <p class="section-sub">Open to engineering roles, data positions, IT contracts, research collaborations, and technical partnerships — globally.</p>
+      </div>
+    </div>
+    <div class="contact-grid fade-up">
+      <div class="contact-info">
+        <h3>READY TO TRANSMIT</h3>
+        <p>Whether you have a role, a project, a research opportunity, or a partnership in mind — reach out directly. Response time: under 24hrs.</p>
+        <a href="mailto:sirmimisco@yahoo.com" class="contact-card">
+          <div class="cc-icon"><i class="fas fa-envelope"></i></div>
+          <div><span class="cc-label">EMAIL</span><span class="cc-val">sirmimisco@yahoo.com</span></div>
+        </a>
+        <a href="https://wa.me/2348068808654" target="_blank" class="contact-card">
+          <div class="cc-icon" style="color:var(--green);"><i class="fab fa-whatsapp"></i></div>
+          <div><span class="cc-label">WHATSAPP</span><span class="cc-val">+234 806 880 8654</span></div>
+        </a>
+        <a href="https://www.linkedin.com/in/miracle-ugokwe-641773a6/" target="_blank" class="contact-card">
+          <div class="cc-icon" style="color:#0a8fd8;"><i class="fab fa-linkedin"></i></div>
+          <div><span class="cc-label">LINKEDIN</span><span class="cc-val">miracle-ugokwe</span></div>
+        </a>
+        <a href="https://x.com/Sir_Mimisco" target="_blank" class="contact-card">
+          <div class="cc-icon" style="color:#1da1f2;"><i class="fab fa-twitter"></i></div>
+          <div><span class="cc-label">TWITTER / X</span><span class="cc-val">@Sir_Mimisco</span></div>
+        </a>
+        <a href="https://github.com/mimisco-git" target="_blank" class="contact-card">
+          <div class="cc-icon"><i class="fab fa-github"></i></div>
+          <div><span class="cc-label">GITHUB PRIMARY</span><span class="cc-val">mimisco-git</span></div>
+        </a>
+        <a href="https://github.com/Alukadex" target="_blank" class="contact-card">
+          <div class="cc-icon"><i class="fab fa-github"></i></div>
+          <div><span class="cc-label">GITHUB PROJECTS</span><span class="cc-val">Alukadex</span></div>
+        </a>
+        <div class="social-row">
+          <a href="https://www.linkedin.com/in/miracle-ugokwe-641773a6/" target="_blank" class="social-btn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://x.com/Sir_Mimisco" target="_blank" class="social-btn"><i class="fab fa-twitter"></i></a>
+          <a href="https://github.com/mimisco-git" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
+          <a href="https://github.com/Alukadex" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
+          <a href="https://wa.me/2348068808654" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+          <a href="mailto:sirmimisco@yahoo.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="Your name"/></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Your surname"/></div>
+        </div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@company.com"/></div>
+        <div class="form-group">
+          <label>Reason for Contact</label>
+          <select>
+            <option value="">SELECT TOPIC...</option>
+            <option>Engineering Role / Job Offer</option>
+            <option>Data Analyst Role</option>
+            <option>IT Support Contract</option>
+            <option>Research Collaboration</option>
+            <option>Web3 / Blockchain Project</option>
+            <option>AI / Automation Project</option>
+            <option>Technical Partnership</option>
+            <option>Procurement / QS Consulting</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Describe the role, project, or opportunity..."></textarea></div>
+        <button class="form-submit" onclick="handleSubmit(event)"><i class="fas fa-satellite-dish"></i>&nbsp;&nbsp;TRANSMIT MESSAGE</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">[MCU] MIRACLE.DEV</div>
+    <div class="footer-text">© 2025 MIRACLE C. UGOKWE // OWERRI / PORT HARCOURT, NIGERIA // AVAILABLE GLOBALLY</div>
+    <div class="footer-links">
+      <a href="#about">ABOUT</a><a href="#skills">STACK</a>
+      <a href="#projects">PROJECTS</a><a href="#contact">CONTACT</a>
+      <a href="public/Miracles_Updated_Cv.pdf" download>CV.PDF</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── SMOOTH SCROLL (accounts for fixed nav + top bar = 86px) ──
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    const target=document.querySelector(this.getAttribute('href'));
+    if(!target)return;
+    e.preventDefault();
+    const offset=86;
+    const top=target.getBoundingClientRect().top+window.scrollY-offset;
+    window.scrollTo({top,behavior:'smooth'});
+    document.getElementById('mobile-menu').classList.remove('open');
+  });
+});
+
+// ── TYPEWRITER ──
+const titles=['AGENTIC AI & WEB3 ENGINEER','DATA ANALYST & INSIGHT BUILDER','IT SUPPORT SPECIALIST','TECH & ACADEMIC RESEARCHER','CEO, MIMISCO TECHNOLOGIES'];
+let ti=0,ci=0,del=false;
+const tw=document.getElementById('typewriter');
+function type(){
+  const cur=titles[ti];
+  tw.textContent=(del?cur.slice(0,ci--):cur.slice(0,ci++));
+  if(!del&&ci>cur.length){setTimeout(()=>{del=true;},2000);setTimeout(type,80);return;}
+  if(del&&ci<0){del=false;ti=(ti+1)%titles.length;setTimeout(type,400);return;}
+  setTimeout(type,del?30:60);
+}
+type();
+
+// ── MOBILE NAV ──
+document.getElementById('hamburger').addEventListener('click',()=>{
+  document.getElementById('mobile-menu').classList.toggle('open');
+});
+
+// ── SCROLL FADE ──
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+// ── PROJECT FILTER ──
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.project-card').forEach(card=>{
+      card.style.display=(f==='all'||card.dataset.cats.includes(f))?'flex':'none';
+    });
+  });
+});
+
+// ── CONTACT FORM ──
+function handleSubmit(e){
+  e.preventDefault();
+  const btn=document.querySelector('.form-submit');
+  btn.textContent='// MESSAGE TRANSMITTED ✓';
+  btn.style.background='#00ff41';
+  setTimeout(()=>{
+    btn.innerHTML='<i class="fas fa-satellite-dish"></i>&nbsp;&nbsp;TRANSMIT MESSAGE';
+    btn.style.background='';
+  },3000);
+}
+</script>
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/2348068808654" target="_blank"
+   style="position:fixed;bottom:1.5rem;right:1.5rem;z-index:300;
+          width:52px;height:52px;background:#00ff41;color:#000;
+          display:flex;align-items:center;justify-content:center;
+          font-size:1.4rem;border:2px solid #000;
+          box-shadow:4px 4px 0 #000;
+          transition:transform 0.15s;"
+   onmouseover="this.style.transform='translate(-2px,-2px)'"
+   onmouseout="this.style.transform=''"
+   title="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+</body>
+</html>
