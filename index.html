@@ -97,6 +97,7 @@ nav{
   background-size:60px 60px;
   opacity:0.4;
 }
+#circuit-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
 .hero-inner{
   max-width:1400px;margin:0 auto;width:100%;
   padding:4rem 0 0;
@@ -499,6 +500,7 @@ footer{
 <!-- HERO -->
 <section class="hero">
   <div class="hero-grid-bg"></div>
+  <canvas id="circuit-canvas"></canvas>
   <div class="hero-inner">
     <div class="hero-sys">SYS://PORTFOLIO_v2.0 &nbsp;<span>// INITIALIZED &nbsp;// NODE: NG-PHC-01</span></div>
     <h1><span class="hi">_</span>MIRACLE<br>UGOKWE</h1>
@@ -539,7 +541,8 @@ footer{
     </div>
     <div class="about-layout fade-up">
       <div class="about-img-col">
-        <img src="public/images/sir_mimisco.png" alt="Miracle Ugokwe"/>
+        <img src="public/images/sir_mimisco.png" alt="Miracle Ugokwe" class="about-img" onerror="this.style.display='none';document.getElementById('img-fallback').style.display='flex';"/>
+        <div id="img-fallback" style="display:none;width:100%;min-height:420px;background:var(--black3);align-items:center;justify-content:center;flex-direction:column;gap:1rem;"><div style="width:120px;height:120px;border:2px solid var(--green);display:flex;align-items:center;justify-content:center;font-size:2.5rem;font-weight:800;color:var(--green);font-family:var(--mono);">MCU</div><div style="font-size:0.65rem;color:var(--white3);letter-spacing:3px;text-transform:uppercase;margin-top:0.5rem;">MIRACLE C. UGOKWE</div></div>
         <div class="about-img-overlay">
           <span class="about-img-tag">MIRACLE C. UGOKWE</span>
           <span class="about-img-tag" style="background:var(--black);color:var(--green);border:1px solid var(--green);">CEO // MIMISCO TECHNOLOGIES</span>
@@ -1106,6 +1109,155 @@ footer{
 </footer>
 
 <script>
+// ── CIRCUIT BOARD CANVAS ──
+(function(){
+  const canvas=document.getElementById('circuit-canvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const GREEN='#00ff41';
+  const DIM='rgba(0,255,65,0.15)';
+  const PULSE='rgba(0,255,65,0.6)';
+  let W,H,nodes=[],pulses=[];
+
+  function resize(){
+    W=canvas.width=canvas.offsetWidth;
+    H=canvas.height=canvas.offsetHeight;
+    buildCircuit();
+  }
+
+  function buildCircuit(){
+    nodes=[];pulses=[];
+    const cols=Math.floor(W/80);
+    const rows=Math.floor(H/80);
+    // Create grid nodes
+    for(let r=0;r<=rows;r++){
+      for(let c=0;c<=cols;c++){
+        if(Math.random()<0.55){
+          nodes.push({
+            x:c*80+Math.random()*20-10,
+            y:r*80+Math.random()*20-10,
+            size:Math.random()<0.08?4:Math.random()<0.2?2.5:1.5,
+            connections:[],
+            pulsing:false
+          });
+        }
+      }
+    }
+    // Connect nearby nodes with traces
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const dx=nodes[i].x-nodes[j].x;
+        const dy=nodes[i].y-nodes[j].y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<140&&Math.random()<0.4){
+          // Only horizontal or vertical traces (circuit style)
+          if(Math.abs(dx)<20||Math.abs(dy)<20){
+            nodes[i].connections.push(j);
+          }
+        }
+      }
+    }
+    // Seed some pulses
+    for(let k=0;k<8;k++) spawnPulse();
+  }
+
+  function spawnPulse(){
+    const src=Math.floor(Math.random()*nodes.length);
+    if(!nodes[src]||!nodes[src].connections.length)return;
+    const connIdx=Math.floor(Math.random()*nodes[src].connections.length);
+    const dst=nodes[src].connections[connIdx];
+    pulses.push({src,dst,t:0,speed:0.008+Math.random()*0.012});
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+
+    // Draw traces
+    ctx.lineWidth=0.8;
+    for(let i=0;i<nodes.length;i++){
+      for(let ci=0;ci<nodes[i].connections.length;ci++){
+        const j=nodes[i].connections[ci];
+        ctx.beginPath();
+        // L-shaped trace: go horizontal then vertical
+        const mx=(nodes[i].x+nodes[j].x)/2;
+        ctx.moveTo(nodes[i].x,nodes[i].y);
+        ctx.lineTo(mx,nodes[i].y);
+        ctx.lineTo(mx,nodes[j].y);
+        ctx.lineTo(nodes[j].x,nodes[j].y);
+        ctx.strokeStyle=DIM;
+        ctx.stroke();
+      }
+    }
+
+    // Draw nodes (pads)
+    for(let i=0;i<nodes.length;i++){
+      const n=nodes[i];
+      ctx.beginPath();
+      ctx.arc(n.x,n.y,n.size,0,Math.PI*2);
+      ctx.fillStyle=n.pulsing?PULSE:DIM;
+      ctx.fill();
+      // Square pad for larger nodes
+      if(n.size>2){
+        ctx.strokeStyle=DIM;
+        ctx.lineWidth=0.5;
+        ctx.strokeRect(n.x-n.size*2,n.y-n.size*2,n.size*4,n.size*4);
+      }
+    }
+
+    // Draw moving pulses
+    pulses.forEach((p,idx)=>{
+      if(!nodes[p.src]||!nodes[p.dst])return;
+      p.t+=p.speed;
+      if(p.t>=1){
+        nodes[p.dst].pulsing=true;
+        setTimeout(()=>{if(nodes[p.dst])nodes[p.dst].pulsing=false;},200);
+        pulses.splice(idx,1);
+        // Spawn new pulse from destination
+        if(nodes[p.dst]&&nodes[p.dst].connections.length){
+          pulses.push({src:p.dst,dst:nodes[p.dst].connections[Math.floor(Math.random()*nodes[p.dst].connections.length)],t:0,speed:0.006+Math.random()*0.012});
+        } else {
+          spawnPulse();
+        }
+        return;
+      }
+      // Interpolate along L-shaped path
+      const sx=nodes[p.src].x,sy=nodes[p.src].y;
+      const dx=nodes[p.dst].x,dy=nodes[p.dst].y;
+      const mx=(sx+dx)/2;
+      let px,py;
+      const half=0.5;
+      if(p.t<half){
+        const lt=p.t/half;
+        px=sx+(mx-sx)*lt; py=sy;
+      } else {
+        const lt=(p.t-half)/half;
+        if(Math.random()<0.5){px=mx+(dx-mx)*lt;py=sy+(dy-sy)*lt;}
+        else{px=mx;py=sy+(dy-sy)*lt;}
+      }
+      // Glow dot
+      const grd=ctx.createRadialGradient(px,py,0,px,py,6);
+      grd.addColorStop(0,'rgba(0,255,65,0.9)');
+      grd.addColorStop(1,'rgba(0,255,65,0)');
+      ctx.beginPath();
+      ctx.arc(px,py,6,0,Math.PI*2);
+      ctx.fillStyle=grd;
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(px,py,2,0,Math.PI*2);
+      ctx.fillStyle=GREEN;
+      ctx.fill();
+    });
+
+    // Keep pulses alive
+    while(pulses.length<12) spawnPulse();
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize',resize);
+  resize();
+  draw();
+})();
+
 // ── SMOOTH SCROLL (accounts for fixed nav + top bar = 86px) ──
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',function(e){
