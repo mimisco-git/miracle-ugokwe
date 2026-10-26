@@ -87,7 +87,8 @@ h1,h2,h3{margin:0;font-family:var(--sans);font-weight:700;letter-spacing:-.045em
 .top.dark .tagline{color:#9db6ff}
 .top.dark .menu-btn i{background:var(--on-dark)}
 .top.menu-open{background:var(--paper)}
-.top.menu-open .brand span{color:var(--ink)}.top.menu-open .menu-btn i{background:var(--ink)}
+.top.menu-open,.top.menu-open.dark{background:var(--paper);border-bottom-color:var(--line)}
+.top.menu-open .brand span,.top.menu-open .nav > a{color:var(--ink)}.top.menu-open .menu-btn i{background:var(--ink)}
 .top .wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.5rem;height:84px;transition:height .6s var(--ease)}
 .top.compact .wrap{height:66px}
 .top{transition:background .5s var(--ease),box-shadow .5s,border-color .5s}
@@ -107,6 +108,7 @@ h1,h2,h3{margin:0;font-family:var(--sans);font-weight:700;letter-spacing:-.045em
 .menu-btn[aria-expanded="true"] i:first-child{top:21px;transform:rotate(45deg)}
 .menu-btn[aria-expanded="true"] i:last-child{top:21px;transform:rotate(-45deg)}
 .nav-foot{display:none}
+.nav{overscroll-behavior:contain}
 .rail{position:absolute;left:0;bottom:-1px;height:2px;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--blue),var(--coral))}
 @media (max-width:1080px){.tagline{display:none}.top .wrap{grid-template-columns:auto 1fr auto}}
 @media (max-width:860px){
@@ -1333,7 +1335,8 @@ function setMenu(open){
   $('.top').classList.toggle('menu-open', open);
   menuBtn.setAttribute('aria-expanded', open);
   menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-  document.body.style.overflow = open ? 'hidden' : '';
+  // lock the page on the root element: locking <body> breaks the sticky header once you have scrolled
+  document.documentElement.style.overflow = open ? 'hidden' : '';
   if (lenis) open ? lenis.stop() : lenis.start();
 }
 menuBtn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
